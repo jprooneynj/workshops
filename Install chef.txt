@@ -1,0 +1,188 @@
+This was from the docs for cut and paste
+
+chef DK on Windows
+ 
+. { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -project chefdk -channel stable -version 0.16.28
+
+
+Launch chef and verify in powershell
+
+verify git
+
+git --version
+git version 2.8.2.windows.1
+
+ssh
+usage: ssh [-1246AaCfGgKkMNnqsTtVvXxYy] [-b bind_address] [-c cipher_spec]
+           [-D [bind_address:]port] [-E log_file] [-e escape_char]
+           [-F configfile] [-I pkcs11] [-i identity_file]
+           [-L address] [-l login_name] [-m mac_spec]
+           [-O ctl_cmd] [-o option] [-p port]
+           [-Q cipher | cipher-auth | mac | kex | key]
+           [-R address] [-S ctl_path] [-W host:port]
+           [-w local_tun[:remote_tun]] [user@]hostname [command]
+
+
+connect to Azure VM
+
+ssh chef@40.117.150.107
+
+
+
+Install chef DK on Azure VM
+
+curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P chefdk -c stable -v 2.0.28
+
+
+install nano text editor
+
+sudo yum install nano -y
+
+
+
+mkdir ~/chef-repo
+
+
+cd ~/chef-repo
+
+
+How to create a file
+
+From your ~/chef-repo directory, create a file named hello.rb, add these contents, and then save the file.
+
+file '/tmp/motd' do
+  content 'hello world'
+end
+
+
+chef-client --local-mode hello.rb
+
+
+
+more /tmp/motd
+
+
+
+how to delete a file:
+
+OK, you're done experimenting with the MOTD, so let's clean up. From your ~/chef-repo directory, create a new file named goodbye.rb and save the following content to it.
+
+file '/tmp/motd' do
+  action :delete
+end
+
+
+chef-client --local-mode goodbye.rb
+
+more /tmp/motd
+/tmp/motd: No such file or directory
+
+
+
+
+Install the Apache package
+Let's install the Apache package, httpd. From your ~/chef-repo directory, add this recipe to a file named webserver.rb.
+
+package 'httpd'
+
+We don't need to specify an action because :install is the default.
+
+sudo chef-client --local-mode webserver.rb
+
+sudo is required because this command installs a package and therefore must be run with root privileges.
+
+Now let's first enable the Apache service when the server boots and then start the service. Modify webserver.rb to look like this.
+
+Editor: ~/chef-repo/webserver.rb
+
+package 'httpd'
+
+service 'httpd' do
+  action [:enable, :start]
+end
+
+
+
+Let's spruce things up and add a custom home page.
+You already know how to configure a file resource; append one that configures the default home page, /var/www/html/index.html, to the end of webserver.rb. The entire recipe now looks like this.
+
+package 'httpd'
+
+service 'httpd' do
+  action [:enable, :start]
+end
+
+file '/var/www/html/index.html' do
+  content '<html>
+  <body>
+    <h1>hello world</h1>
+
+Run the curl command to confirm that your web page is available.
+
+curl localhost
+<html>
+  <body>
+    <h1>hello world</h1>
+  </body>
+</html>
+
+
+The resources are applied in the order they are specified in the recipe. So here the package is installed, then the service is configured, and finally the home page is set. If any resource is already in the desired state, Chef simply moves on to the next one.
+The same idea applies to the action list [:enable, :start] for configuring the service. The service is enabled when the server boots before the service is started.
+It's important to always think about how you order things. For example, the recipe wouldn't work if we tried to configure the Apache service before the package is even installed.
+A recipe stops if any step fails (don't worry – Chef provides info about the error). That's why we ordered the service actions the way we did. If the service can't be enabled on boot then we don't want to start it.
+  </body>
+</html>'
+end
+
+
+
+Make a cookbook
+
+First, from your ~/chef-repo directory, create the cookbooks directory.
+
+mkdir cookbooks
+
+Now run the following chef generate cookbook command to generate a cookbook named learn_chef_httpd.
+
+chef generate cookbook cookbooks/learn_chef_httpd
+
+Now we'll move the home page to an external file. First, run this command to generate the HTML file for our home page
+
+chef generate template cookbooks/learn_chef_httpd index.html
+
+The file index.html.erb gets created under learn_chef_httpd/templates.
+
+The .erb extension simply means that the file can have placeholders. More on that later.
+Now copy the contents of the HTML file from your recipe to the new HTML file, index.html.erb.
+
+<html>
+  <body>
+    <h1>hello world</h1>
+  </body>
+</html>
+
+
+Write out the recipe, default.rb, like this.
+
+package 'httpd'
+
+service 'httpd' do
+  action [:enable, :start]
+end
+
+template '/var/www/html/index.html' do
+  source 'index.html.erb'
+end
+
+
+
+Now run the cookbook. To do so, we use the chef-client command and specify what's called the run-list.
+
+sudo chef-client --local-mode --runlist 'recipe[learn_chef_httpd]'
+
+
+Previously, you ran chef-client to run a single recipe from the command line. A run-list specifies each of the individual recipes from your cookbook that you want to apply. Here, you applied just one recipe, but the run-list can contain multiple recipes from multiple cookbooks.
+
+In this example, recipe[learn_chef_httpd] is the same as specifying recipe[learn_chef_httpd::default], meaning we want to run the learn_chef_httpd cookbook's default recipe, default.rb.
+Run curl again or refresh your web browser to confirm that your web page is still available.
