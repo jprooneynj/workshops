@@ -1,3 +1,5 @@
+https://github.com/chef-cft/workshops
+
 This was from the docs for cut and paste
 
 chef DK on Windows
