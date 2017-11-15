@@ -5,3 +5,5 @@ yum_repository 'mongodb' do
   action :create
 end
 
+
+yum_package 'mongodb-org'
