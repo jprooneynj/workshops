@@ -1,0 +1,1 @@
+yum_package 'mongodb-org-3.4'
