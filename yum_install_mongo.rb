@@ -7,3 +7,8 @@ end
 
 
 yum_package 'mongodb-org'
+
+
+service 'mongod' do
+  action [:enable, :start]
+end
