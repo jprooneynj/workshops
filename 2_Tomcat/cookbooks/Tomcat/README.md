@@ -76,13 +76,15 @@ Usage
 
 Examples
 
+Tested from the Tomcat/cookbooks/recipes directory
 
+chef-client --local-mode default.rb
 
 License and Author
 
-Author:: AUTHOR_NAME
+Author:: John Rooney
 
-Copyright:: YYYY, Opscode, Inc
+Copyright:: 2017, Opscode, Inc
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 

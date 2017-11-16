@@ -13,7 +13,7 @@
         "model": "63",
         "model_name": "Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz",
         "stepping": "2",
-        "mhz": "2397.179",
+        "mhz": "2397.236",
         "cache_size": "30720 KB",
         "physical_id": "0",
         "core_id": "0",
@@ -45,10 +45,13 @@
           "ht",
           "syscall",
           "nx",
+          "pdpe1gb",
+          "rdtscp",
           "lm",
           "constant_tsc",
           "rep_good",
           "nopl",
+          "xtopology",
           "eagerfpu",
           "pni",
           "pclmulqdq",
@@ -82,7 +85,7 @@
         "model": "63",
         "model_name": "Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz",
         "stepping": "2",
-        "mhz": "2397.179",
+        "mhz": "2397.236",
         "cache_size": "30720 KB",
         "physical_id": "0",
         "core_id": "1",
@@ -114,10 +117,13 @@
           "ht",
           "syscall",
           "nx",
+          "pdpe1gb",
+          "rdtscp",
           "lm",
           "constant_tsc",
           "rep_good",
           "nopl",
+          "xtopology",
           "eagerfpu",
           "pni",
           "pclmulqdq",
@@ -153,12 +159,12 @@
       "by_device": {
         "/dev/sda2": {
           "kb_size": "33025276",
-          "kb_used": "2987176",
-          "kb_available": "30038100",
-          "percent_used": "10%",
+          "kb_used": "3386948",
+          "kb_available": "29638328",
+          "percent_used": "11%",
           "total_inodes": "16520704",
-          "inodes_used": "113691",
-          "inodes_available": "16407013",
+          "inodes_used": "117459",
+          "inodes_available": "16403245",
           "inodes_percent_used": "1%",
           "fs_type": "xfs",
           "mount_options": [
@@ -175,21 +181,21 @@
           ]
         },
         "devtmpfs": {
-          "kb_size": "3558080",
+          "kb_size": "3553856",
           "kb_used": "0",
-          "kb_available": "3558080",
+          "kb_available": "3553856",
           "percent_used": "0%",
-          "total_inodes": "889520",
+          "total_inodes": "888464",
           "inodes_used": "350",
-          "inodes_available": "889170",
+          "inodes_available": "888114",
           "inodes_percent_used": "1%",
           "fs_type": "devtmpfs",
           "mount_options": [
             "rw",
             "nosuid",
             "seclabel",
-            "size=3558080k",
-            "nr_inodes=889520",
+            "size=3553856k",
+            "nr_inodes=888464",
             "mode=755"
           ],
           "mounts": [
@@ -197,13 +203,13 @@
           ]
         },
         "tmpfs": {
-          "kb_size": "713536",
+          "kb_size": "712692",
           "kb_used": "0",
-          "kb_available": "713536",
+          "kb_available": "712692",
           "percent_used": "0%",
-          "total_inodes": "891917",
+          "total_inodes": "890860",
           "inodes_used": "1",
-          "inodes_available": "891916",
+          "inodes_available": "890859",
           "inodes_percent_used": "1%",
           "fs_type": "tmpfs",
           "mount_options": [
@@ -212,7 +218,7 @@
             "nodev",
             "relatime",
             "seclabel",
-            "size=713536k",
+            "size=712692k",
             "mode=700",
             "uid=1000",
             "gid=1000"
@@ -221,6 +227,7 @@
             "/dev/shm",
             "/run",
             "/sys/fs/cgroup",
+            "/run/user/0",
             "/run/user/1000"
           ]
         },
@@ -263,7 +270,7 @@
             "seclabel",
             "data=ordered"
           ],
-          "uuid": "7cb2c8af-d5f0-4d43-a262-9412f81fe39f",
+          "uuid": "ce9bf011-7ef1-479d-b2b1-641b199d0dd0",
           "mounts": [
             "/mnt/resource"
           ]
@@ -332,20 +339,20 @@
             "nodev",
             "noexec",
             "relatime",
-            "blkio"
+            "hugetlb"
           ],
           "mounts": [
             "/sys/fs/cgroup/systemd",
-            "/sys/fs/cgroup/cpuset",
-            "/sys/fs/cgroup/hugetlb",
+            "/sys/fs/cgroup/perf_event",
+            "/sys/fs/cgroup/cpu,cpuacct",
             "/sys/fs/cgroup/pids",
+            "/sys/fs/cgroup/freezer",
+            "/sys/fs/cgroup/devices",
+            "/sys/fs/cgroup/cpuset",
+            "/sys/fs/cgroup/blkio",
             "/sys/fs/cgroup/memory",
             "/sys/fs/cgroup/net_cls,net_prio",
-            "/sys/fs/cgroup/freezer",
-            "/sys/fs/cgroup/cpu,cpuacct",
-            "/sys/fs/cgroup/perf_event",
-            "/sys/fs/cgroup/devices",
-            "/sys/fs/cgroup/blkio"
+            "/sys/fs/cgroup/hugetlb"
           ]
         },
         "pstore": {
@@ -386,26 +393,27 @@
           "mount_options": [
             "rw",
             "relatime",
-            "fd=34",
+            "fd=30",
             "pgrp=1",
             "timeout=0",
             "minproto=5",
             "maxproto=5",
             "direct",
-            "pipe_ino=12007"
+            "pipe_ino=11124"
           ],
           "mounts": [
             "/proc/sys/fs/binfmt_misc"
           ]
         },
-        "debugfs": {
-          "fs_type": "debugfs",
+        "mqueue": {
+          "fs_type": "mqueue",
           "mount_options": [
             "rw",
-            "relatime"
+            "relatime",
+            "seclabel"
           ],
           "mounts": [
-            "/sys/kernel/debug"
+            "/dev/mqueue"
           ]
         },
         "hugetlbfs": {
@@ -419,15 +427,14 @@
             "/dev/hugepages"
           ]
         },
-        "mqueue": {
-          "fs_type": "mqueue",
+        "debugfs": {
+          "fs_type": "debugfs",
           "mount_options": [
             "rw",
-            "relatime",
-            "seclabel"
+            "relatime"
           ],
           "mounts": [
-            "/dev/mqueue"
+            "/sys/kernel/debug"
           ]
         },
         "/dev/fd0": {
@@ -458,12 +465,12 @@
       "by_mountpoint": {
         "/": {
           "kb_size": "33025276",
-          "kb_used": "2987176",
-          "kb_available": "30038100",
-          "percent_used": "10%",
+          "kb_used": "3386948",
+          "kb_available": "29638328",
+          "percent_used": "11%",
           "total_inodes": "16520704",
-          "inodes_used": "113691",
-          "inodes_available": "16407013",
+          "inodes_used": "117459",
+          "inodes_available": "16403245",
           "inodes_percent_used": "1%",
           "fs_type": "rootfs",
           "mount_options": [
@@ -476,21 +483,21 @@
           ]
         },
         "/dev": {
-          "kb_size": "3558080",
+          "kb_size": "3553856",
           "kb_used": "0",
-          "kb_available": "3558080",
+          "kb_available": "3553856",
           "percent_used": "0%",
-          "total_inodes": "889520",
+          "total_inodes": "888464",
           "inodes_used": "350",
-          "inodes_available": "889170",
+          "inodes_available": "888114",
           "inodes_percent_used": "1%",
           "fs_type": "devtmpfs",
           "mount_options": [
             "rw",
             "nosuid",
             "seclabel",
-            "size=3558080k",
-            "nr_inodes=889520",
+            "size=3553856k",
+            "nr_inodes=888464",
             "mode=755"
           ],
           "devices": [
@@ -498,13 +505,13 @@
           ]
         },
         "/dev/shm": {
-          "kb_size": "3567668",
+          "kb_size": "3563440",
           "kb_used": "0",
-          "kb_available": "3567668",
+          "kb_available": "3563440",
           "percent_used": "0%",
-          "total_inodes": "891917",
+          "total_inodes": "890860",
           "inodes_used": "1",
-          "inodes_available": "891916",
+          "inodes_available": "890859",
           "inodes_percent_used": "1%",
           "fs_type": "tmpfs",
           "mount_options": [
@@ -518,13 +525,13 @@
           ]
         },
         "/run": {
-          "kb_size": "3567668",
-          "kb_used": "8516",
-          "kb_available": "3559152",
+          "kb_size": "3563440",
+          "kb_used": "16776",
+          "kb_available": "3546664",
           "percent_used": "1%",
-          "total_inodes": "891917",
-          "inodes_used": "410",
-          "inodes_available": "891507",
+          "total_inodes": "890860",
+          "inodes_used": "432",
+          "inodes_available": "890428",
           "inodes_percent_used": "1%",
           "fs_type": "tmpfs",
           "mount_options": [
@@ -539,13 +546,13 @@
           ]
         },
         "/sys/fs/cgroup": {
-          "kb_size": "3567668",
+          "kb_size": "3563440",
           "kb_used": "0",
-          "kb_available": "3567668",
+          "kb_available": "3563440",
           "percent_used": "0%",
-          "total_inodes": "891917",
+          "total_inodes": "890860",
           "inodes_used": "16",
-          "inodes_available": "891901",
+          "inodes_available": "890844",
           "inodes_percent_used": "1%",
           "fs_type": "tmpfs",
           "mount_options": [
@@ -599,19 +606,19 @@
             "seclabel",
             "data=ordered"
           ],
-          "uuid": "7cb2c8af-d5f0-4d43-a262-9412f81fe39f",
+          "uuid": "ce9bf011-7ef1-479d-b2b1-641b199d0dd0",
           "devices": [
             "/dev/sdb1"
           ]
         },
-        "/run/user/1000": {
-          "kb_size": "713536",
+        "/run/user/0": {
+          "kb_size": "712692",
           "kb_used": "0",
-          "kb_available": "713536",
+          "kb_available": "712692",
           "percent_used": "0%",
-          "total_inodes": "891917",
+          "total_inodes": "890860",
           "inodes_used": "1",
-          "inodes_available": "891916",
+          "inodes_available": "890859",
           "inodes_percent_used": "1%",
           "fs_type": "tmpfs",
           "mount_options": [
@@ -620,7 +627,30 @@
             "nodev",
             "relatime",
             "seclabel",
-            "size=713536k",
+            "size=712692k",
+            "mode=700"
+          ],
+          "devices": [
+            "tmpfs"
+          ]
+        },
+        "/run/user/1000": {
+          "kb_size": "712692",
+          "kb_used": "0",
+          "kb_available": "712692",
+          "percent_used": "0%",
+          "total_inodes": "890860",
+          "inodes_used": "1",
+          "inodes_available": "890859",
+          "inodes_percent_used": "1%",
+          "fs_type": "tmpfs",
+          "mount_options": [
+            "rw",
+            "nosuid",
+            "nodev",
+            "relatime",
+            "seclabel",
+            "size=712692k",
             "mode=700",
             "uid=1000",
             "gid=1000"
@@ -714,7 +744,7 @@
             "pstore"
           ]
         },
-        "/sys/fs/cgroup/cpuset": {
+        "/sys/fs/cgroup/perf_event": {
           "fs_type": "cgroup",
           "mount_options": [
             "rw",
@@ -722,13 +752,13 @@
             "nodev",
             "noexec",
             "relatime",
-            "cpuset"
+            "perf_event"
           ],
           "devices": [
             "cgroup"
           ]
         },
-        "/sys/fs/cgroup/hugetlb": {
+        "/sys/fs/cgroup/cpu,cpuacct": {
           "fs_type": "cgroup",
           "mount_options": [
             "rw",
@@ -736,7 +766,8 @@
             "nodev",
             "noexec",
             "relatime",
-            "hugetlb"
+            "cpuacct",
+            "cpu"
           ],
           "devices": [
             "cgroup"
@@ -751,6 +782,62 @@
             "noexec",
             "relatime",
             "pids"
+          ],
+          "devices": [
+            "cgroup"
+          ]
+        },
+        "/sys/fs/cgroup/freezer": {
+          "fs_type": "cgroup",
+          "mount_options": [
+            "rw",
+            "nosuid",
+            "nodev",
+            "noexec",
+            "relatime",
+            "freezer"
+          ],
+          "devices": [
+            "cgroup"
+          ]
+        },
+        "/sys/fs/cgroup/devices": {
+          "fs_type": "cgroup",
+          "mount_options": [
+            "rw",
+            "nosuid",
+            "nodev",
+            "noexec",
+            "relatime",
+            "devices"
+          ],
+          "devices": [
+            "cgroup"
+          ]
+        },
+        "/sys/fs/cgroup/cpuset": {
+          "fs_type": "cgroup",
+          "mount_options": [
+            "rw",
+            "nosuid",
+            "nodev",
+            "noexec",
+            "relatime",
+            "cpuset"
+          ],
+          "devices": [
+            "cgroup"
+          ]
+        },
+        "/sys/fs/cgroup/blkio": {
+          "fs_type": "cgroup",
+          "mount_options": [
+            "rw",
+            "nosuid",
+            "nodev",
+            "noexec",
+            "relatime",
+            "blkio"
           ],
           "devices": [
             "cgroup"
@@ -785,7 +872,7 @@
             "cgroup"
           ]
         },
-        "/sys/fs/cgroup/freezer": {
+        "/sys/fs/cgroup/hugetlb": {
           "fs_type": "cgroup",
           "mount_options": [
             "rw",
@@ -793,64 +880,7 @@
             "nodev",
             "noexec",
             "relatime",
-            "freezer"
-          ],
-          "devices": [
-            "cgroup"
-          ]
-        },
-        "/sys/fs/cgroup/cpu,cpuacct": {
-          "fs_type": "cgroup",
-          "mount_options": [
-            "rw",
-            "nosuid",
-            "nodev",
-            "noexec",
-            "relatime",
-            "cpuacct",
-            "cpu"
-          ],
-          "devices": [
-            "cgroup"
-          ]
-        },
-        "/sys/fs/cgroup/perf_event": {
-          "fs_type": "cgroup",
-          "mount_options": [
-            "rw",
-            "nosuid",
-            "nodev",
-            "noexec",
-            "relatime",
-            "perf_event"
-          ],
-          "devices": [
-            "cgroup"
-          ]
-        },
-        "/sys/fs/cgroup/devices": {
-          "fs_type": "cgroup",
-          "mount_options": [
-            "rw",
-            "nosuid",
-            "nodev",
-            "noexec",
-            "relatime",
-            "devices"
-          ],
-          "devices": [
-            "cgroup"
-          ]
-        },
-        "/sys/fs/cgroup/blkio": {
-          "fs_type": "cgroup",
-          "mount_options": [
-            "rw",
-            "nosuid",
-            "nodev",
-            "noexec",
-            "relatime",
-            "blkio"
+            "hugetlb"
           ],
           "devices": [
             "cgroup"
@@ -881,26 +911,27 @@
           "mount_options": [
             "rw",
             "relatime",
-            "fd=34",
+            "fd=30",
             "pgrp=1",
             "timeout=0",
             "minproto=5",
             "maxproto=5",
             "direct",
-            "pipe_ino=12007"
+            "pipe_ino=11124"
           ],
           "devices": [
             "systemd-1"
           ]
         },
-        "/sys/kernel/debug": {
-          "fs_type": "debugfs",
+        "/dev/mqueue": {
+          "fs_type": "mqueue",
           "mount_options": [
             "rw",
-            "relatime"
+            "relatime",
+            "seclabel"
           ],
           "devices": [
-            "debugfs"
+            "mqueue"
           ]
         },
         "/dev/hugepages": {
@@ -914,15 +945,14 @@
             "hugetlbfs"
           ]
         },
-        "/dev/mqueue": {
-          "fs_type": "mqueue",
+        "/sys/kernel/debug": {
+          "fs_type": "debugfs",
           "mount_options": [
             "rw",
-            "relatime",
-            "seclabel"
+            "relatime"
           ],
           "devices": [
-            "mqueue"
+            "debugfs"
           ]
         }
       },
@@ -930,13 +960,13 @@
         "/dev/sda2,/": {
           "device": "/dev/sda2",
           "kb_size": "33025276",
-          "kb_used": "2987176",
-          "kb_available": "30038100",
-          "percent_used": "10%",
+          "kb_used": "3386948",
+          "kb_available": "29638328",
+          "percent_used": "11%",
           "mount": "/",
           "total_inodes": "16520704",
-          "inodes_used": "113691",
-          "inodes_available": "16407013",
+          "inodes_used": "117459",
+          "inodes_available": "16403245",
           "inodes_percent_used": "1%",
           "fs_type": "xfs",
           "mount_options": [
@@ -951,35 +981,35 @@
         },
         "devtmpfs,/dev": {
           "device": "devtmpfs",
-          "kb_size": "3558080",
+          "kb_size": "3553856",
           "kb_used": "0",
-          "kb_available": "3558080",
+          "kb_available": "3553856",
           "percent_used": "0%",
           "mount": "/dev",
-          "total_inodes": "889520",
+          "total_inodes": "888464",
           "inodes_used": "350",
-          "inodes_available": "889170",
+          "inodes_available": "888114",
           "inodes_percent_used": "1%",
           "fs_type": "devtmpfs",
           "mount_options": [
             "rw",
             "nosuid",
             "seclabel",
-            "size=3558080k",
-            "nr_inodes=889520",
+            "size=3553856k",
+            "nr_inodes=888464",
             "mode=755"
           ]
         },
         "tmpfs,/dev/shm": {
           "device": "tmpfs",
-          "kb_size": "3567668",
+          "kb_size": "3563440",
           "kb_used": "0",
-          "kb_available": "3567668",
+          "kb_available": "3563440",
           "percent_used": "0%",
           "mount": "/dev/shm",
-          "total_inodes": "891917",
+          "total_inodes": "890860",
           "inodes_used": "1",
-          "inodes_available": "891916",
+          "inodes_available": "890859",
           "inodes_percent_used": "1%",
           "fs_type": "tmpfs",
           "mount_options": [
@@ -991,14 +1021,14 @@
         },
         "tmpfs,/run": {
           "device": "tmpfs",
-          "kb_size": "3567668",
-          "kb_used": "8516",
-          "kb_available": "3559152",
+          "kb_size": "3563440",
+          "kb_used": "16776",
+          "kb_available": "3546664",
           "percent_used": "1%",
           "mount": "/run",
-          "total_inodes": "891917",
-          "inodes_used": "410",
-          "inodes_available": "891507",
+          "total_inodes": "890860",
+          "inodes_used": "432",
+          "inodes_available": "890428",
           "inodes_percent_used": "1%",
           "fs_type": "tmpfs",
           "mount_options": [
@@ -1011,14 +1041,14 @@
         },
         "tmpfs,/sys/fs/cgroup": {
           "device": "tmpfs",
-          "kb_size": "3567668",
+          "kb_size": "3563440",
           "kb_used": "0",
-          "kb_available": "3567668",
+          "kb_available": "3563440",
           "percent_used": "0%",
           "mount": "/sys/fs/cgroup",
-          "total_inodes": "891917",
+          "total_inodes": "890860",
           "inodes_used": "16",
-          "inodes_available": "891901",
+          "inodes_available": "890844",
           "inodes_percent_used": "1%",
           "fs_type": "tmpfs",
           "mount_options": [
@@ -1070,18 +1100,18 @@
             "seclabel",
             "data=ordered"
           ],
-          "uuid": "7cb2c8af-d5f0-4d43-a262-9412f81fe39f"
+          "uuid": "ce9bf011-7ef1-479d-b2b1-641b199d0dd0"
         },
-        "tmpfs,/run/user/1000": {
+        "tmpfs,/run/user/0": {
           "device": "tmpfs",
-          "kb_size": "713536",
+          "kb_size": "712692",
           "kb_used": "0",
-          "kb_available": "713536",
+          "kb_available": "712692",
           "percent_used": "0%",
-          "mount": "/run/user/1000",
-          "total_inodes": "891917",
+          "mount": "/run/user/0",
+          "total_inodes": "890860",
           "inodes_used": "1",
-          "inodes_available": "891916",
+          "inodes_available": "890859",
           "inodes_percent_used": "1%",
           "fs_type": "tmpfs",
           "mount_options": [
@@ -1090,7 +1120,29 @@
             "nodev",
             "relatime",
             "seclabel",
-            "size=713536k",
+            "size=712692k",
+            "mode=700"
+          ]
+        },
+        "tmpfs,/run/user/1000": {
+          "device": "tmpfs",
+          "kb_size": "712692",
+          "kb_used": "0",
+          "kb_available": "712692",
+          "percent_used": "0%",
+          "mount": "/run/user/1000",
+          "total_inodes": "890860",
+          "inodes_used": "1",
+          "inodes_available": "890859",
+          "inodes_percent_used": "1%",
+          "fs_type": "tmpfs",
+          "mount_options": [
+            "rw",
+            "nosuid",
+            "nodev",
+            "relatime",
+            "seclabel",
+            "size=712692k",
             "mode=700",
             "uid=1000",
             "gid=1000"
@@ -1175,9 +1227,9 @@
             "relatime"
           ]
         },
-        "cgroup,/sys/fs/cgroup/cpuset": {
+        "cgroup,/sys/fs/cgroup/perf_event": {
           "device": "cgroup",
-          "mount": "/sys/fs/cgroup/cpuset",
+          "mount": "/sys/fs/cgroup/perf_event",
           "fs_type": "cgroup",
           "mount_options": [
             "rw",
@@ -1185,12 +1237,12 @@
             "nodev",
             "noexec",
             "relatime",
-            "cpuset"
+            "perf_event"
           ]
         },
-        "cgroup,/sys/fs/cgroup/hugetlb": {
+        "cgroup,/sys/fs/cgroup/cpu,cpuacct": {
           "device": "cgroup",
-          "mount": "/sys/fs/cgroup/hugetlb",
+          "mount": "/sys/fs/cgroup/cpu,cpuacct",
           "fs_type": "cgroup",
           "mount_options": [
             "rw",
@@ -1198,7 +1250,8 @@
             "nodev",
             "noexec",
             "relatime",
-            "hugetlb"
+            "cpuacct",
+            "cpu"
           ]
         },
         "cgroup,/sys/fs/cgroup/pids": {
@@ -1212,6 +1265,58 @@
             "noexec",
             "relatime",
             "pids"
+          ]
+        },
+        "cgroup,/sys/fs/cgroup/freezer": {
+          "device": "cgroup",
+          "mount": "/sys/fs/cgroup/freezer",
+          "fs_type": "cgroup",
+          "mount_options": [
+            "rw",
+            "nosuid",
+            "nodev",
+            "noexec",
+            "relatime",
+            "freezer"
+          ]
+        },
+        "cgroup,/sys/fs/cgroup/devices": {
+          "device": "cgroup",
+          "mount": "/sys/fs/cgroup/devices",
+          "fs_type": "cgroup",
+          "mount_options": [
+            "rw",
+            "nosuid",
+            "nodev",
+            "noexec",
+            "relatime",
+            "devices"
+          ]
+        },
+        "cgroup,/sys/fs/cgroup/cpuset": {
+          "device": "cgroup",
+          "mount": "/sys/fs/cgroup/cpuset",
+          "fs_type": "cgroup",
+          "mount_options": [
+            "rw",
+            "nosuid",
+            "nodev",
+            "noexec",
+            "relatime",
+            "cpuset"
+          ]
+        },
+        "cgroup,/sys/fs/cgroup/blkio": {
+          "device": "cgroup",
+          "mount": "/sys/fs/cgroup/blkio",
+          "fs_type": "cgroup",
+          "mount_options": [
+            "rw",
+            "nosuid",
+            "nodev",
+            "noexec",
+            "relatime",
+            "blkio"
           ]
         },
         "cgroup,/sys/fs/cgroup/memory": {
@@ -1241,9 +1346,9 @@
             "net_cls"
           ]
         },
-        "cgroup,/sys/fs/cgroup/freezer": {
+        "cgroup,/sys/fs/cgroup/hugetlb": {
           "device": "cgroup",
-          "mount": "/sys/fs/cgroup/freezer",
+          "mount": "/sys/fs/cgroup/hugetlb",
           "fs_type": "cgroup",
           "mount_options": [
             "rw",
@@ -1251,60 +1356,7 @@
             "nodev",
             "noexec",
             "relatime",
-            "freezer"
-          ]
-        },
-        "cgroup,/sys/fs/cgroup/cpu,cpuacct": {
-          "device": "cgroup",
-          "mount": "/sys/fs/cgroup/cpu,cpuacct",
-          "fs_type": "cgroup",
-          "mount_options": [
-            "rw",
-            "nosuid",
-            "nodev",
-            "noexec",
-            "relatime",
-            "cpuacct",
-            "cpu"
-          ]
-        },
-        "cgroup,/sys/fs/cgroup/perf_event": {
-          "device": "cgroup",
-          "mount": "/sys/fs/cgroup/perf_event",
-          "fs_type": "cgroup",
-          "mount_options": [
-            "rw",
-            "nosuid",
-            "nodev",
-            "noexec",
-            "relatime",
-            "perf_event"
-          ]
-        },
-        "cgroup,/sys/fs/cgroup/devices": {
-          "device": "cgroup",
-          "mount": "/sys/fs/cgroup/devices",
-          "fs_type": "cgroup",
-          "mount_options": [
-            "rw",
-            "nosuid",
-            "nodev",
-            "noexec",
-            "relatime",
-            "devices"
-          ]
-        },
-        "cgroup,/sys/fs/cgroup/blkio": {
-          "device": "cgroup",
-          "mount": "/sys/fs/cgroup/blkio",
-          "fs_type": "cgroup",
-          "mount_options": [
-            "rw",
-            "nosuid",
-            "nodev",
-            "noexec",
-            "relatime",
-            "blkio"
+            "hugetlb"
           ]
         },
         "configfs,/sys/kernel/config": {
@@ -1332,22 +1384,23 @@
           "mount_options": [
             "rw",
             "relatime",
-            "fd=34",
+            "fd=30",
             "pgrp=1",
             "timeout=0",
             "minproto=5",
             "maxproto=5",
             "direct",
-            "pipe_ino=12007"
+            "pipe_ino=11124"
           ]
         },
-        "debugfs,/sys/kernel/debug": {
-          "device": "debugfs",
-          "mount": "/sys/kernel/debug",
-          "fs_type": "debugfs",
+        "mqueue,/dev/mqueue": {
+          "device": "mqueue",
+          "mount": "/dev/mqueue",
+          "fs_type": "mqueue",
           "mount_options": [
             "rw",
-            "relatime"
+            "relatime",
+            "seclabel"
           ]
         },
         "hugetlbfs,/dev/hugepages": {
@@ -1360,14 +1413,13 @@
             "seclabel"
           ]
         },
-        "mqueue,/dev/mqueue": {
-          "device": "mqueue",
-          "mount": "/dev/mqueue",
-          "fs_type": "mqueue",
+        "debugfs,/sys/kernel/debug": {
+          "device": "debugfs",
+          "mount": "/sys/kernel/debug",
+          "fs_type": "debugfs",
           "mount_options": [
             "rw",
-            "relatime",
-            "seclabel"
+            "relatime"
           ]
         },
         "/dev/fd0,": {
@@ -1393,12 +1445,12 @@
       "by_device": {
         "/dev/sda2": {
           "kb_size": "33025276",
-          "kb_used": "2987176",
-          "kb_available": "30038100",
-          "percent_used": "10%",
+          "kb_used": "3386948",
+          "kb_available": "29638328",
+          "percent_used": "11%",
           "total_inodes": "16520704",
-          "inodes_used": "113691",
-          "inodes_available": "16407013",
+          "inodes_used": "117459",
+          "inodes_available": "16403245",
           "inodes_percent_used": "1%",
           "fs_type": "xfs",
           "mount_options": [
@@ -1415,21 +1467,21 @@
           ]
         },
         "devtmpfs": {
-          "kb_size": "3558080",
+          "kb_size": "3553856",
           "kb_used": "0",
-          "kb_available": "3558080",
+          "kb_available": "3553856",
           "percent_used": "0%",
-          "total_inodes": "889520",
+          "total_inodes": "888464",
           "inodes_used": "350",
-          "inodes_available": "889170",
+          "inodes_available": "888114",
           "inodes_percent_used": "1%",
           "fs_type": "devtmpfs",
           "mount_options": [
             "rw",
             "nosuid",
             "seclabel",
-            "size=3558080k",
-            "nr_inodes=889520",
+            "size=3553856k",
+            "nr_inodes=888464",
             "mode=755"
           ],
           "mounts": [
@@ -1437,13 +1489,13 @@
           ]
         },
         "tmpfs": {
-          "kb_size": "713536",
+          "kb_size": "712692",
           "kb_used": "0",
-          "kb_available": "713536",
+          "kb_available": "712692",
           "percent_used": "0%",
-          "total_inodes": "891917",
+          "total_inodes": "890860",
           "inodes_used": "1",
-          "inodes_available": "891916",
+          "inodes_available": "890859",
           "inodes_percent_used": "1%",
           "fs_type": "tmpfs",
           "mount_options": [
@@ -1452,7 +1504,7 @@
             "nodev",
             "relatime",
             "seclabel",
-            "size=713536k",
+            "size=712692k",
             "mode=700",
             "uid=1000",
             "gid=1000"
@@ -1461,6 +1513,7 @@
             "/dev/shm",
             "/run",
             "/sys/fs/cgroup",
+            "/run/user/0",
             "/run/user/1000"
           ]
         },
@@ -1503,7 +1556,7 @@
             "seclabel",
             "data=ordered"
           ],
-          "uuid": "7cb2c8af-d5f0-4d43-a262-9412f81fe39f",
+          "uuid": "ce9bf011-7ef1-479d-b2b1-641b199d0dd0",
           "mounts": [
             "/mnt/resource"
           ]
@@ -1572,20 +1625,20 @@
             "nodev",
             "noexec",
             "relatime",
-            "blkio"
+            "hugetlb"
           ],
           "mounts": [
             "/sys/fs/cgroup/systemd",
-            "/sys/fs/cgroup/cpuset",
-            "/sys/fs/cgroup/hugetlb",
+            "/sys/fs/cgroup/perf_event",
+            "/sys/fs/cgroup/cpu,cpuacct",
             "/sys/fs/cgroup/pids",
+            "/sys/fs/cgroup/freezer",
+            "/sys/fs/cgroup/devices",
+            "/sys/fs/cgroup/cpuset",
+            "/sys/fs/cgroup/blkio",
             "/sys/fs/cgroup/memory",
             "/sys/fs/cgroup/net_cls,net_prio",
-            "/sys/fs/cgroup/freezer",
-            "/sys/fs/cgroup/cpu,cpuacct",
-            "/sys/fs/cgroup/perf_event",
-            "/sys/fs/cgroup/devices",
-            "/sys/fs/cgroup/blkio"
+            "/sys/fs/cgroup/hugetlb"
           ]
         },
         "pstore": {
@@ -1626,26 +1679,27 @@
           "mount_options": [
             "rw",
             "relatime",
-            "fd=34",
+            "fd=30",
             "pgrp=1",
             "timeout=0",
             "minproto=5",
             "maxproto=5",
             "direct",
-            "pipe_ino=12007"
+            "pipe_ino=11124"
           ],
           "mounts": [
             "/proc/sys/fs/binfmt_misc"
           ]
         },
-        "debugfs": {
-          "fs_type": "debugfs",
+        "mqueue": {
+          "fs_type": "mqueue",
           "mount_options": [
             "rw",
-            "relatime"
+            "relatime",
+            "seclabel"
           ],
           "mounts": [
-            "/sys/kernel/debug"
+            "/dev/mqueue"
           ]
         },
         "hugetlbfs": {
@@ -1659,15 +1713,14 @@
             "/dev/hugepages"
           ]
         },
-        "mqueue": {
-          "fs_type": "mqueue",
+        "debugfs": {
+          "fs_type": "debugfs",
           "mount_options": [
             "rw",
-            "relatime",
-            "seclabel"
+            "relatime"
           ],
           "mounts": [
-            "/dev/mqueue"
+            "/sys/kernel/debug"
           ]
         },
         "/dev/fd0": {
@@ -1698,12 +1751,12 @@
       "by_mountpoint": {
         "/": {
           "kb_size": "33025276",
-          "kb_used": "2987176",
-          "kb_available": "30038100",
-          "percent_used": "10%",
+          "kb_used": "3386948",
+          "kb_available": "29638328",
+          "percent_used": "11%",
           "total_inodes": "16520704",
-          "inodes_used": "113691",
-          "inodes_available": "16407013",
+          "inodes_used": "117459",
+          "inodes_available": "16403245",
           "inodes_percent_used": "1%",
           "fs_type": "rootfs",
           "mount_options": [
@@ -1716,21 +1769,21 @@
           ]
         },
         "/dev": {
-          "kb_size": "3558080",
+          "kb_size": "3553856",
           "kb_used": "0",
-          "kb_available": "3558080",
+          "kb_available": "3553856",
           "percent_used": "0%",
-          "total_inodes": "889520",
+          "total_inodes": "888464",
           "inodes_used": "350",
-          "inodes_available": "889170",
+          "inodes_available": "888114",
           "inodes_percent_used": "1%",
           "fs_type": "devtmpfs",
           "mount_options": [
             "rw",
             "nosuid",
             "seclabel",
-            "size=3558080k",
-            "nr_inodes=889520",
+            "size=3553856k",
+            "nr_inodes=888464",
             "mode=755"
           ],
           "devices": [
@@ -1738,13 +1791,13 @@
           ]
         },
         "/dev/shm": {
-          "kb_size": "3567668",
+          "kb_size": "3563440",
           "kb_used": "0",
-          "kb_available": "3567668",
+          "kb_available": "3563440",
           "percent_used": "0%",
-          "total_inodes": "891917",
+          "total_inodes": "890860",
           "inodes_used": "1",
-          "inodes_available": "891916",
+          "inodes_available": "890859",
           "inodes_percent_used": "1%",
           "fs_type": "tmpfs",
           "mount_options": [
@@ -1758,13 +1811,13 @@
           ]
         },
         "/run": {
-          "kb_size": "3567668",
-          "kb_used": "8516",
-          "kb_available": "3559152",
+          "kb_size": "3563440",
+          "kb_used": "16776",
+          "kb_available": "3546664",
           "percent_used": "1%",
-          "total_inodes": "891917",
-          "inodes_used": "410",
-          "inodes_available": "891507",
+          "total_inodes": "890860",
+          "inodes_used": "432",
+          "inodes_available": "890428",
           "inodes_percent_used": "1%",
           "fs_type": "tmpfs",
           "mount_options": [
@@ -1779,13 +1832,13 @@
           ]
         },
         "/sys/fs/cgroup": {
-          "kb_size": "3567668",
+          "kb_size": "3563440",
           "kb_used": "0",
-          "kb_available": "3567668",
+          "kb_available": "3563440",
           "percent_used": "0%",
-          "total_inodes": "891917",
+          "total_inodes": "890860",
           "inodes_used": "16",
-          "inodes_available": "891901",
+          "inodes_available": "890844",
           "inodes_percent_used": "1%",
           "fs_type": "tmpfs",
           "mount_options": [
@@ -1839,19 +1892,19 @@
             "seclabel",
             "data=ordered"
           ],
-          "uuid": "7cb2c8af-d5f0-4d43-a262-9412f81fe39f",
+          "uuid": "ce9bf011-7ef1-479d-b2b1-641b199d0dd0",
           "devices": [
             "/dev/sdb1"
           ]
         },
-        "/run/user/1000": {
-          "kb_size": "713536",
+        "/run/user/0": {
+          "kb_size": "712692",
           "kb_used": "0",
-          "kb_available": "713536",
+          "kb_available": "712692",
           "percent_used": "0%",
-          "total_inodes": "891917",
+          "total_inodes": "890860",
           "inodes_used": "1",
-          "inodes_available": "891916",
+          "inodes_available": "890859",
           "inodes_percent_used": "1%",
           "fs_type": "tmpfs",
           "mount_options": [
@@ -1860,7 +1913,30 @@
             "nodev",
             "relatime",
             "seclabel",
-            "size=713536k",
+            "size=712692k",
+            "mode=700"
+          ],
+          "devices": [
+            "tmpfs"
+          ]
+        },
+        "/run/user/1000": {
+          "kb_size": "712692",
+          "kb_used": "0",
+          "kb_available": "712692",
+          "percent_used": "0%",
+          "total_inodes": "890860",
+          "inodes_used": "1",
+          "inodes_available": "890859",
+          "inodes_percent_used": "1%",
+          "fs_type": "tmpfs",
+          "mount_options": [
+            "rw",
+            "nosuid",
+            "nodev",
+            "relatime",
+            "seclabel",
+            "size=712692k",
             "mode=700",
             "uid=1000",
             "gid=1000"
@@ -1954,7 +2030,7 @@
             "pstore"
           ]
         },
-        "/sys/fs/cgroup/cpuset": {
+        "/sys/fs/cgroup/perf_event": {
           "fs_type": "cgroup",
           "mount_options": [
             "rw",
@@ -1962,13 +2038,13 @@
             "nodev",
             "noexec",
             "relatime",
-            "cpuset"
+            "perf_event"
           ],
           "devices": [
             "cgroup"
           ]
         },
-        "/sys/fs/cgroup/hugetlb": {
+        "/sys/fs/cgroup/cpu,cpuacct": {
           "fs_type": "cgroup",
           "mount_options": [
             "rw",
@@ -1976,7 +2052,8 @@
             "nodev",
             "noexec",
             "relatime",
-            "hugetlb"
+            "cpuacct",
+            "cpu"
           ],
           "devices": [
             "cgroup"
@@ -1991,6 +2068,62 @@
             "noexec",
             "relatime",
             "pids"
+          ],
+          "devices": [
+            "cgroup"
+          ]
+        },
+        "/sys/fs/cgroup/freezer": {
+          "fs_type": "cgroup",
+          "mount_options": [
+            "rw",
+            "nosuid",
+            "nodev",
+            "noexec",
+            "relatime",
+            "freezer"
+          ],
+          "devices": [
+            "cgroup"
+          ]
+        },
+        "/sys/fs/cgroup/devices": {
+          "fs_type": "cgroup",
+          "mount_options": [
+            "rw",
+            "nosuid",
+            "nodev",
+            "noexec",
+            "relatime",
+            "devices"
+          ],
+          "devices": [
+            "cgroup"
+          ]
+        },
+        "/sys/fs/cgroup/cpuset": {
+          "fs_type": "cgroup",
+          "mount_options": [
+            "rw",
+            "nosuid",
+            "nodev",
+            "noexec",
+            "relatime",
+            "cpuset"
+          ],
+          "devices": [
+            "cgroup"
+          ]
+        },
+        "/sys/fs/cgroup/blkio": {
+          "fs_type": "cgroup",
+          "mount_options": [
+            "rw",
+            "nosuid",
+            "nodev",
+            "noexec",
+            "relatime",
+            "blkio"
           ],
           "devices": [
             "cgroup"
@@ -2025,7 +2158,7 @@
             "cgroup"
           ]
         },
-        "/sys/fs/cgroup/freezer": {
+        "/sys/fs/cgroup/hugetlb": {
           "fs_type": "cgroup",
           "mount_options": [
             "rw",
@@ -2033,64 +2166,7 @@
             "nodev",
             "noexec",
             "relatime",
-            "freezer"
-          ],
-          "devices": [
-            "cgroup"
-          ]
-        },
-        "/sys/fs/cgroup/cpu,cpuacct": {
-          "fs_type": "cgroup",
-          "mount_options": [
-            "rw",
-            "nosuid",
-            "nodev",
-            "noexec",
-            "relatime",
-            "cpuacct",
-            "cpu"
-          ],
-          "devices": [
-            "cgroup"
-          ]
-        },
-        "/sys/fs/cgroup/perf_event": {
-          "fs_type": "cgroup",
-          "mount_options": [
-            "rw",
-            "nosuid",
-            "nodev",
-            "noexec",
-            "relatime",
-            "perf_event"
-          ],
-          "devices": [
-            "cgroup"
-          ]
-        },
-        "/sys/fs/cgroup/devices": {
-          "fs_type": "cgroup",
-          "mount_options": [
-            "rw",
-            "nosuid",
-            "nodev",
-            "noexec",
-            "relatime",
-            "devices"
-          ],
-          "devices": [
-            "cgroup"
-          ]
-        },
-        "/sys/fs/cgroup/blkio": {
-          "fs_type": "cgroup",
-          "mount_options": [
-            "rw",
-            "nosuid",
-            "nodev",
-            "noexec",
-            "relatime",
-            "blkio"
+            "hugetlb"
           ],
           "devices": [
             "cgroup"
@@ -2121,26 +2197,27 @@
           "mount_options": [
             "rw",
             "relatime",
-            "fd=34",
+            "fd=30",
             "pgrp=1",
             "timeout=0",
             "minproto=5",
             "maxproto=5",
             "direct",
-            "pipe_ino=12007"
+            "pipe_ino=11124"
           ],
           "devices": [
             "systemd-1"
           ]
         },
-        "/sys/kernel/debug": {
-          "fs_type": "debugfs",
+        "/dev/mqueue": {
+          "fs_type": "mqueue",
           "mount_options": [
             "rw",
-            "relatime"
+            "relatime",
+            "seclabel"
           ],
           "devices": [
-            "debugfs"
+            "mqueue"
           ]
         },
         "/dev/hugepages": {
@@ -2154,15 +2231,14 @@
             "hugetlbfs"
           ]
         },
-        "/dev/mqueue": {
-          "fs_type": "mqueue",
+        "/sys/kernel/debug": {
+          "fs_type": "debugfs",
           "mount_options": [
             "rw",
-            "relatime",
-            "seclabel"
+            "relatime"
           ],
           "devices": [
-            "mqueue"
+            "debugfs"
           ]
         }
       },
@@ -2170,13 +2246,13 @@
         "/dev/sda2,/": {
           "device": "/dev/sda2",
           "kb_size": "33025276",
-          "kb_used": "2987176",
-          "kb_available": "30038100",
-          "percent_used": "10%",
+          "kb_used": "3386948",
+          "kb_available": "29638328",
+          "percent_used": "11%",
           "mount": "/",
           "total_inodes": "16520704",
-          "inodes_used": "113691",
-          "inodes_available": "16407013",
+          "inodes_used": "117459",
+          "inodes_available": "16403245",
           "inodes_percent_used": "1%",
           "fs_type": "xfs",
           "mount_options": [
@@ -2191,35 +2267,35 @@
         },
         "devtmpfs,/dev": {
           "device": "devtmpfs",
-          "kb_size": "3558080",
+          "kb_size": "3553856",
           "kb_used": "0",
-          "kb_available": "3558080",
+          "kb_available": "3553856",
           "percent_used": "0%",
           "mount": "/dev",
-          "total_inodes": "889520",
+          "total_inodes": "888464",
           "inodes_used": "350",
-          "inodes_available": "889170",
+          "inodes_available": "888114",
           "inodes_percent_used": "1%",
           "fs_type": "devtmpfs",
           "mount_options": [
             "rw",
             "nosuid",
             "seclabel",
-            "size=3558080k",
-            "nr_inodes=889520",
+            "size=3553856k",
+            "nr_inodes=888464",
             "mode=755"
           ]
         },
         "tmpfs,/dev/shm": {
           "device": "tmpfs",
-          "kb_size": "3567668",
+          "kb_size": "3563440",
           "kb_used": "0",
-          "kb_available": "3567668",
+          "kb_available": "3563440",
           "percent_used": "0%",
           "mount": "/dev/shm",
-          "total_inodes": "891917",
+          "total_inodes": "890860",
           "inodes_used": "1",
-          "inodes_available": "891916",
+          "inodes_available": "890859",
           "inodes_percent_used": "1%",
           "fs_type": "tmpfs",
           "mount_options": [
@@ -2231,14 +2307,14 @@
         },
         "tmpfs,/run": {
           "device": "tmpfs",
-          "kb_size": "3567668",
-          "kb_used": "8516",
-          "kb_available": "3559152",
+          "kb_size": "3563440",
+          "kb_used": "16776",
+          "kb_available": "3546664",
           "percent_used": "1%",
           "mount": "/run",
-          "total_inodes": "891917",
-          "inodes_used": "410",
-          "inodes_available": "891507",
+          "total_inodes": "890860",
+          "inodes_used": "432",
+          "inodes_available": "890428",
           "inodes_percent_used": "1%",
           "fs_type": "tmpfs",
           "mount_options": [
@@ -2251,14 +2327,14 @@
         },
         "tmpfs,/sys/fs/cgroup": {
           "device": "tmpfs",
-          "kb_size": "3567668",
+          "kb_size": "3563440",
           "kb_used": "0",
-          "kb_available": "3567668",
+          "kb_available": "3563440",
           "percent_used": "0%",
           "mount": "/sys/fs/cgroup",
-          "total_inodes": "891917",
+          "total_inodes": "890860",
           "inodes_used": "16",
-          "inodes_available": "891901",
+          "inodes_available": "890844",
           "inodes_percent_used": "1%",
           "fs_type": "tmpfs",
           "mount_options": [
@@ -2310,18 +2386,18 @@
             "seclabel",
             "data=ordered"
           ],
-          "uuid": "7cb2c8af-d5f0-4d43-a262-9412f81fe39f"
+          "uuid": "ce9bf011-7ef1-479d-b2b1-641b199d0dd0"
         },
-        "tmpfs,/run/user/1000": {
+        "tmpfs,/run/user/0": {
           "device": "tmpfs",
-          "kb_size": "713536",
+          "kb_size": "712692",
           "kb_used": "0",
-          "kb_available": "713536",
+          "kb_available": "712692",
           "percent_used": "0%",
-          "mount": "/run/user/1000",
-          "total_inodes": "891917",
+          "mount": "/run/user/0",
+          "total_inodes": "890860",
           "inodes_used": "1",
-          "inodes_available": "891916",
+          "inodes_available": "890859",
           "inodes_percent_used": "1%",
           "fs_type": "tmpfs",
           "mount_options": [
@@ -2330,7 +2406,29 @@
             "nodev",
             "relatime",
             "seclabel",
-            "size=713536k",
+            "size=712692k",
+            "mode=700"
+          ]
+        },
+        "tmpfs,/run/user/1000": {
+          "device": "tmpfs",
+          "kb_size": "712692",
+          "kb_used": "0",
+          "kb_available": "712692",
+          "percent_used": "0%",
+          "mount": "/run/user/1000",
+          "total_inodes": "890860",
+          "inodes_used": "1",
+          "inodes_available": "890859",
+          "inodes_percent_used": "1%",
+          "fs_type": "tmpfs",
+          "mount_options": [
+            "rw",
+            "nosuid",
+            "nodev",
+            "relatime",
+            "seclabel",
+            "size=712692k",
             "mode=700",
             "uid=1000",
             "gid=1000"
@@ -2415,9 +2513,9 @@
             "relatime"
           ]
         },
-        "cgroup,/sys/fs/cgroup/cpuset": {
+        "cgroup,/sys/fs/cgroup/perf_event": {
           "device": "cgroup",
-          "mount": "/sys/fs/cgroup/cpuset",
+          "mount": "/sys/fs/cgroup/perf_event",
           "fs_type": "cgroup",
           "mount_options": [
             "rw",
@@ -2425,12 +2523,12 @@
             "nodev",
             "noexec",
             "relatime",
-            "cpuset"
+            "perf_event"
           ]
         },
-        "cgroup,/sys/fs/cgroup/hugetlb": {
+        "cgroup,/sys/fs/cgroup/cpu,cpuacct": {
           "device": "cgroup",
-          "mount": "/sys/fs/cgroup/hugetlb",
+          "mount": "/sys/fs/cgroup/cpu,cpuacct",
           "fs_type": "cgroup",
           "mount_options": [
             "rw",
@@ -2438,7 +2536,8 @@
             "nodev",
             "noexec",
             "relatime",
-            "hugetlb"
+            "cpuacct",
+            "cpu"
           ]
         },
         "cgroup,/sys/fs/cgroup/pids": {
@@ -2452,6 +2551,58 @@
             "noexec",
             "relatime",
             "pids"
+          ]
+        },
+        "cgroup,/sys/fs/cgroup/freezer": {
+          "device": "cgroup",
+          "mount": "/sys/fs/cgroup/freezer",
+          "fs_type": "cgroup",
+          "mount_options": [
+            "rw",
+            "nosuid",
+            "nodev",
+            "noexec",
+            "relatime",
+            "freezer"
+          ]
+        },
+        "cgroup,/sys/fs/cgroup/devices": {
+          "device": "cgroup",
+          "mount": "/sys/fs/cgroup/devices",
+          "fs_type": "cgroup",
+          "mount_options": [
+            "rw",
+            "nosuid",
+            "nodev",
+            "noexec",
+            "relatime",
+            "devices"
+          ]
+        },
+        "cgroup,/sys/fs/cgroup/cpuset": {
+          "device": "cgroup",
+          "mount": "/sys/fs/cgroup/cpuset",
+          "fs_type": "cgroup",
+          "mount_options": [
+            "rw",
+            "nosuid",
+            "nodev",
+            "noexec",
+            "relatime",
+            "cpuset"
+          ]
+        },
+        "cgroup,/sys/fs/cgroup/blkio": {
+          "device": "cgroup",
+          "mount": "/sys/fs/cgroup/blkio",
+          "fs_type": "cgroup",
+          "mount_options": [
+            "rw",
+            "nosuid",
+            "nodev",
+            "noexec",
+            "relatime",
+            "blkio"
           ]
         },
         "cgroup,/sys/fs/cgroup/memory": {
@@ -2481,9 +2632,9 @@
             "net_cls"
           ]
         },
-        "cgroup,/sys/fs/cgroup/freezer": {
+        "cgroup,/sys/fs/cgroup/hugetlb": {
           "device": "cgroup",
-          "mount": "/sys/fs/cgroup/freezer",
+          "mount": "/sys/fs/cgroup/hugetlb",
           "fs_type": "cgroup",
           "mount_options": [
             "rw",
@@ -2491,60 +2642,7 @@
             "nodev",
             "noexec",
             "relatime",
-            "freezer"
-          ]
-        },
-        "cgroup,/sys/fs/cgroup/cpu,cpuacct": {
-          "device": "cgroup",
-          "mount": "/sys/fs/cgroup/cpu,cpuacct",
-          "fs_type": "cgroup",
-          "mount_options": [
-            "rw",
-            "nosuid",
-            "nodev",
-            "noexec",
-            "relatime",
-            "cpuacct",
-            "cpu"
-          ]
-        },
-        "cgroup,/sys/fs/cgroup/perf_event": {
-          "device": "cgroup",
-          "mount": "/sys/fs/cgroup/perf_event",
-          "fs_type": "cgroup",
-          "mount_options": [
-            "rw",
-            "nosuid",
-            "nodev",
-            "noexec",
-            "relatime",
-            "perf_event"
-          ]
-        },
-        "cgroup,/sys/fs/cgroup/devices": {
-          "device": "cgroup",
-          "mount": "/sys/fs/cgroup/devices",
-          "fs_type": "cgroup",
-          "mount_options": [
-            "rw",
-            "nosuid",
-            "nodev",
-            "noexec",
-            "relatime",
-            "devices"
-          ]
-        },
-        "cgroup,/sys/fs/cgroup/blkio": {
-          "device": "cgroup",
-          "mount": "/sys/fs/cgroup/blkio",
-          "fs_type": "cgroup",
-          "mount_options": [
-            "rw",
-            "nosuid",
-            "nodev",
-            "noexec",
-            "relatime",
-            "blkio"
+            "hugetlb"
           ]
         },
         "configfs,/sys/kernel/config": {
@@ -2572,22 +2670,23 @@
           "mount_options": [
             "rw",
             "relatime",
-            "fd=34",
+            "fd=30",
             "pgrp=1",
             "timeout=0",
             "minproto=5",
             "maxproto=5",
             "direct",
-            "pipe_ino=12007"
+            "pipe_ino=11124"
           ]
         },
-        "debugfs,/sys/kernel/debug": {
-          "device": "debugfs",
-          "mount": "/sys/kernel/debug",
-          "fs_type": "debugfs",
+        "mqueue,/dev/mqueue": {
+          "device": "mqueue",
+          "mount": "/dev/mqueue",
+          "fs_type": "mqueue",
           "mount_options": [
             "rw",
-            "relatime"
+            "relatime",
+            "seclabel"
           ]
         },
         "hugetlbfs,/dev/hugepages": {
@@ -2600,14 +2699,13 @@
             "seclabel"
           ]
         },
-        "mqueue,/dev/mqueue": {
-          "device": "mqueue",
-          "mount": "/dev/mqueue",
-          "fs_type": "mqueue",
+        "debugfs,/sys/kernel/debug": {
+          "device": "debugfs",
+          "mount": "/sys/kernel/debug",
+          "fs_type": "debugfs",
           "mount_options": [
             "rw",
-            "relatime",
-            "seclabel"
+            "relatime"
           ]
         },
         "/dev/fd0,": {
@@ -2802,33 +2900,12 @@
           "size": "123303",
           "refcount": "2"
         },
-        "joydev": {
-          "size": "17377",
-          "refcount": "0"
-        },
         "sb_edac": {
           "size": "32018",
           "refcount": "0"
         },
         "edac_core": {
           "size": "58151",
-          "refcount": "1"
-        },
-        "hv_utils": {
-          "size": "25438",
-          "refcount": "0"
-        },
-        "ptp": {
-          "size": "19231",
-          "refcount": "1"
-        },
-        "sg": {
-          "size": "40721",
-          "refcount": "0",
-          "version": "3.5.36"
-        },
-        "pps_core": {
-          "size": "19057",
           "refcount": "1"
         },
         "iosf_mbi": {
@@ -2867,6 +2944,35 @@
           "size": "20359",
           "refcount": "3"
         },
+        "joydev": {
+          "size": "17377",
+          "refcount": "0"
+        },
+        "pcspkr": {
+          "size": "12718",
+          "refcount": "0"
+        },
+        "hv_utils": {
+          "size": "25438",
+          "refcount": "0"
+        },
+        "ptp": {
+          "size": "19231",
+          "refcount": "1"
+        },
+        "hv_balloon": {
+          "size": "22073",
+          "refcount": "0"
+        },
+        "sg": {
+          "size": "40721",
+          "refcount": "0",
+          "version": "3.5.36"
+        },
+        "pps_core": {
+          "size": "19057",
+          "refcount": "1"
+        },
         "i2c_piix4": {
           "size": "22390",
           "refcount": "0"
@@ -2874,10 +2980,6 @@
         "i2c_core": {
           "size": "40756",
           "refcount": "1"
-        },
-        "pcspkr": {
-          "size": "12718",
-          "refcount": "0"
         },
         "ip_tables": {
           "size": "27115",
@@ -2921,47 +3023,47 @@
           "size": "64007",
           "refcount": "1"
         },
-        "hv_netvsc": {
-          "size": "40627",
-          "refcount": "0"
-        },
-        "hyperv_keyboard": {
-          "size": "12777",
-          "refcount": "0"
+        "scsi_tgt": {
+          "size": "20027",
+          "refcount": "1"
         },
         "hid_hyperv": {
           "size": "13108",
           "refcount": "0"
         },
-        "scsi_tgt": {
-          "size": "20027",
+        "hyperv_fb": {
+          "size": "17769",
           "refcount": "1"
         },
-        "ata_piix": {
-          "size": "35038",
-          "refcount": "0",
-          "version": "2.13"
+        "hyperv_keyboard": {
+          "size": "12777",
+          "refcount": "0"
+        },
+        "hv_netvsc": {
+          "size": "40627",
+          "refcount": "0"
         },
         "crct10dif_pclmul": {
           "size": "14289",
-          "refcount": "1"
-        },
-        "hyperv_fb": {
-          "size": "17769",
           "refcount": "1"
         },
         "crct10dif_common": {
           "size": "12595",
           "refcount": "3"
         },
-        "crc32c_intel": {
-          "size": "22079",
-          "refcount": "1"
+        "ata_piix": {
+          "size": "35038",
+          "refcount": "0",
+          "version": "2.13"
         },
         "libata": {
           "size": "238896",
           "refcount": "3",
           "version": "3.00"
+        },
+        "crc32c_intel": {
+          "size": "22079",
+          "refcount": "1"
         },
         "serio_raw": {
           "size": "13413",
@@ -2973,7 +3075,7 @@
         },
         "hv_vmbus": {
           "size": "403100",
-          "refcount": "6"
+          "refcount": "7"
         }
       }
     },
@@ -2989,27 +3091,27 @@
         "reserved": "0",
         "surplus": "0"
       },
-      "total": "7135336kB",
-      "free": "6476740kB",
-      "buffers": "2256kB",
-      "cached": "238536kB",
-      "active": "265056kB",
-      "inactive": "200276kB",
-      "dirty": "12kB",
+      "total": "7126884kB",
+      "free": "5717996kB",
+      "buffers": "4320kB",
+      "cached": "832288kB",
+      "active": "599796kB",
+      "inactive": "468676kB",
+      "dirty": "44kB",
       "writeback": "0kB",
-      "anon_pages": "224476kB",
-      "mapped": "37360kB",
-      "slab": "59836kB",
-      "slab_reclaimable": "27748kB",
-      "slab_unreclaim": "32088kB",
-      "page_tables": "9428kB",
+      "anon_pages": "231792kB",
+      "mapped": "43944kB",
+      "slab": "166868kB",
+      "slab_reclaimable": "116172kB",
+      "slab_unreclaim": "50696kB",
+      "page_tables": "8968kB",
       "nfs_unstable": "0kB",
       "bounce": "0kB",
-      "commit_limit": "5664816kB",
-      "committed_as": "699200kB",
+      "commit_limit": "5660588kB",
+      "committed_as": "707896kB",
       "vmalloc_total": "34359738367kB",
-      "vmalloc_used": "98844kB",
-      "vmalloc_chunk": "34359635892kB",
+      "vmalloc_used": "117916kB",
+      "vmalloc_chunk": "34359615264kB",
       "hugepage_size": "2048kB"
     },
     "network": {
@@ -3159,7 +3261,7 @@
               "proto": "kernel"
             }
           ],
-          "link_speed": 10000,
+          "link_speed": 40000,
           "duplex": "Full",
           "port": "Other",
           "transceiver": "internal",
@@ -3178,16 +3280,16 @@
           "lo": {
             "tx": {
               "queuelen": "1",
-              "bytes": "5568",
-              "packets": "72",
+              "bytes": "6934",
+              "packets": "86",
               "errors": "0",
               "drop": "0",
               "carrier": "0",
               "collisions": "0"
             },
             "rx": {
-              "bytes": "5568",
-              "packets": "72",
+              "bytes": "6934",
+              "packets": "86",
               "errors": "0",
               "drop": "0",
               "overrun": "0"
@@ -3196,18 +3298,18 @@
           "eth0": {
             "tx": {
               "queuelen": "1000",
-              "bytes": "8004039",
-              "packets": "48177",
+              "bytes": "15481721",
+              "packets": "103050",
               "errors": "0",
               "drop": "0",
               "carrier": "0",
               "collisions": "0"
             },
             "rx": {
-              "bytes": "17561951",
-              "packets": "34963",
+              "bytes": "159163400",
+              "packets": "158882",
               "errors": "0",
-              "drop": "0",
+              "drop": "3",
               "overrun": "0"
             }
           }
@@ -3225,14 +3327,16 @@
     "platform": "redhat",
     "platform_version": "7.4",
     "platform_family": "rhel",
-    "uptime_seconds": 4875,
-    "uptime": "1 hours 21 minutes 15 seconds",
-    "idletime_seconds": 9631,
-    "idletime": "2 hours 40 minutes 31 seconds",
+    "uptime_seconds": 7981,
+    "uptime": "2 hours 13 minutes 01 seconds",
+    "idletime_seconds": 15493,
+    "idletime": "4 hours 18 minutes 13 seconds",
     "virtualization": {
       "systems": {
-
-      }
+        "hyperv": "guest"
+      },
+      "system": "hyperv",
+      "role": "guest"
     },
     "azure": {
 
@@ -3249,6 +3353,13 @@
         "glibc": {
           "version": "2.17",
           "description": "GNU C Library (GNU libc) stable release version 2.17, by Roland McGrath et al."
+        }
+      },
+      "java": {
+        "version": "1.7.0_151",
+        "hotspot": {
+          "name": "OpenJDK 64-Bit Server VM",
+          "build": "24.151-b00, mixed mode"
         }
       },
       "lua": {
@@ -3277,7 +3388,1682 @@
       }
     },
     "dmi": {
-      "dmidecode_version": "3.0"
+      "dmidecode_version": "3.0",
+      "smbios_version": "2.3",
+      "structures": {
+        "count": "338",
+        "size": "19438"
+      },
+      "bios": {
+        "all_records": [
+          {
+            "record_id": "0x0000",
+            "size": "0",
+            "application_identifier": "BIOS Information",
+            "Vendor": "American Megatrends Inc.",
+            "Version": "090007 ",
+            "Release Date": "06/02/2017",
+            "Address": "0xF0000",
+            "Runtime Size": "64 kB",
+            "ROM Size": "256 kB",
+            "Characteristics": {
+              "ISA is supported": null,
+              "PCI is supported": null,
+              "PNP is supported": null,
+              "BIOS is upgradeable": null,
+              "BIOS shadowing is allowed": null,
+              "ESCD support is available": null,
+              "Boot from CD is supported": null,
+              "Selectable boot is supported": null,
+              "BIOS ROM is socketed": null,
+              "EDD is supported": null,
+              "5.25\"/360 kB floppy services are supported (int 13h)": null,
+              "5.25\"/1.2 MB floppy services are supported (int 13h)": null,
+              "3.5\"/720 kB floppy services are supported (int 13h)": null,
+              "3.5\"/2.88 MB floppy services are supported (int 13h)": null,
+              "Print screen service is supported (int 5h)": null,
+              "8042 keyboard services are supported (int 9h)": null,
+              "Serial services are supported (int 14h)": null,
+              "Printer services are supported (int 17h)": null,
+              "CGA/mono video services are supported (int 10h)": null,
+              "AGP is supported": null,
+              "LS-120 boot is supported": null,
+              "ATAPI Zip drive boot is supported": null,
+              "BIOS boot specification is supported": null
+            }
+          }
+        ],
+        "vendor": "American Megatrends Inc.",
+        "version": "090007",
+        "release_date": "06/02/2017",
+        "address": "0xF0000",
+        "runtime_size": "64 kB",
+        "rom_size": "256 kB"
+      },
+      "system": {
+        "all_records": [
+          {
+            "record_id": "0x0001",
+            "size": "1",
+            "application_identifier": "System Information",
+            "Manufacturer": "Microsoft Corporation",
+            "Product Name": "Virtual Machine",
+            "Version": "7.0",
+            "Serial Number": "0000-0012-2675-4352-1353-7470-39",
+            "UUID": "D6113FAA-EF20-5F4A-A65E-38175241C537",
+            "Wake-up Type": "Power Switch"
+          }
+        ],
+        "manufacturer": "Microsoft Corporation",
+        "product_name": "Virtual Machine",
+        "version": "7.0",
+        "serial_number": "0000-0012-2675-4352-1353-7470-39",
+        "uuid": "D6113FAA-EF20-5F4A-A65E-38175241C537",
+        "wake_up_type": "Power Switch"
+      },
+      "base_board": {
+        "all_records": [
+          {
+            "record_id": "0x0002",
+            "size": "2",
+            "application_identifier": "Base Board Information",
+            "Manufacturer": "Microsoft Corporation",
+            "Product Name": "Virtual Machine",
+            "Version": "7.0",
+            "Serial Number": "0000-0011-9880-8093-0922-2843-43"
+          }
+        ],
+        "manufacturer": "Microsoft Corporation",
+        "product_name": "Virtual Machine",
+        "version": "7.0",
+        "serial_number": "0000-0011-9880-8093-0922-2843-43"
+      },
+      "chassis": {
+        "all_records": [
+          {
+            "record_id": "0x0003",
+            "size": "3",
+            "application_identifier": "Chassis Information",
+            "Manufacturer": "Microsoft Corporation",
+            "Type": "Desktop",
+            "Lock": "Not Present",
+            "Version": "7.0",
+            "Serial Number": "4872-3019-3875-0309-7637-6881-60",
+            "Asset Tag": "7783-7084-3265-9085-8269-3286-77",
+            "Boot-up State": "Safe",
+            "Power Supply State": "Safe",
+            "Thermal State": "Other",
+            "Security Status": "Other",
+            "OEM Information": "0x00000000"
+          }
+        ],
+        "manufacturer": "Microsoft Corporation",
+        "type": "Desktop",
+        "lock": "Not Present",
+        "version": "7.0",
+        "serial_number": "4872-3019-3875-0309-7637-6881-60",
+        "asset_tag": "7783-7084-3265-9085-8269-3286-77",
+        "boot_up_state": "Safe",
+        "power_supply_state": "Safe",
+        "thermal_state": "Other",
+        "security_status": "Other",
+        "oem_information": "0x00000000"
+      },
+      "oem_strings": {
+        "all_records": [
+          {
+            "record_id": "0x0004",
+            "size": "11",
+            "application_identifier": "OEM Strings",
+            "String 1": "[MS_VM_CERT/SHA1/9b80ca0d5dd061ec9da4e494f4c3fd1196270c22]",
+            "String 2": "00000000000000000000000000000000",
+            "String 3": "To be filed by MSFT"
+          }
+        ],
+        "string_1": "[MS_VM_CERT/SHA1/9b80ca0d5dd061ec9da4e494f4c3fd1196270c22]",
+        "string_2": "00000000000000000000000000000000",
+        "string_3": "To be filed by MSFT"
+      },
+      "processor": {
+        "all_records": [
+          {
+            "record_id": "0x0005",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Xeon",
+            "Manufacturer": "Intel(R) Corporation",
+            "ID": "F2 06 03 00 FF FB 8B 1F",
+            "Signature": "Type 0, Family 6, Model 63, Stepping 2",
+            "Flags": {
+              "FPU (Floating-point unit on-chip)": null,
+              "VME (Virtual mode extension)": null,
+              "DE (Debugging extension)": null,
+              "PSE (Page size extension)": null,
+              "TSC (Time stamp counter)": null,
+              "MSR (Model specific registers)": null,
+              "PAE (Physical address extension)": null,
+              "MCE (Machine check exception)": null,
+              "CX8 (CMPXCHG8 instruction supported)": null,
+              "APIC (On-chip APIC hardware supported)": null,
+              "SEP (Fast system call)": null,
+              "MTRR (Memory type range registers)": null,
+              "PGE (Page global enable)": null,
+              "MCA (Machine check architecture)": null,
+              "CMOV (Conditional move instruction supported)": null,
+              "PAT (Page attribute table)": null,
+              "PSE-36 (36-bit page size extension)": null,
+              "CLFSH (CLFLUSH instruction supported)": null,
+              "MMX (MMX technology supported)": null,
+              "FXSR (FXSAVE and FXSTOR instructions supported)": null,
+              "SSE (Streaming SIMD extensions)": null,
+              "SSE2 (Streaming SIMD extensions 2)": null,
+              "SS (Self-snoop)": null,
+              "HTT (Multi-threading)": null
+            },
+            "Version": "Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz",
+            "Voltage": "2.3 V",
+            "External Clock": "100 MHz",
+            "Max Speed": "4000 MHz",
+            "Current Speed": "2400 MHz",
+            "Status": "Populated, Enabled",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0006",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Xeon",
+            "Manufacturer": "Intel(R) Corporation",
+            "ID": "F2 06 03 00 FF FB 8B 1F",
+            "Signature": "Type 0, Family 6, Model 63, Stepping 2",
+            "Flags": {
+              "FPU (Floating-point unit on-chip)": null,
+              "VME (Virtual mode extension)": null,
+              "DE (Debugging extension)": null,
+              "PSE (Page size extension)": null,
+              "TSC (Time stamp counter)": null,
+              "MSR (Model specific registers)": null,
+              "PAE (Physical address extension)": null,
+              "MCE (Machine check exception)": null,
+              "CX8 (CMPXCHG8 instruction supported)": null,
+              "APIC (On-chip APIC hardware supported)": null,
+              "SEP (Fast system call)": null,
+              "MTRR (Memory type range registers)": null,
+              "PGE (Page global enable)": null,
+              "MCA (Machine check architecture)": null,
+              "CMOV (Conditional move instruction supported)": null,
+              "PAT (Page attribute table)": null,
+              "PSE-36 (36-bit page size extension)": null,
+              "CLFSH (CLFLUSH instruction supported)": null,
+              "MMX (MMX technology supported)": null,
+              "FXSR (FXSAVE and FXSTOR instructions supported)": null,
+              "SSE (Streaming SIMD extensions)": null,
+              "SSE2 (Streaming SIMD extensions 2)": null,
+              "SS (Self-snoop)": null,
+              "HTT (Multi-threading)": null
+            },
+            "Version": "Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz",
+            "Voltage": "2.3 V",
+            "External Clock": "100 MHz",
+            "Max Speed": "4000 MHz",
+            "Current Speed": "2400 MHz",
+            "Status": "Populated, Enabled",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0007",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0008",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0009",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x000A",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x000B",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x000C",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x000D",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x000E",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x000F",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0010",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0011",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0012",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0013",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0014",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0015",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0016",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0017",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0018",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0019",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x001A",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x001B",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x001C",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x001D",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x001E",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x001F",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0020",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0021",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0022",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0023",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0024",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0025",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0026",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0027",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0028",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0029",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x002A",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x002B",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x002C",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x002D",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x002E",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x002F",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0030",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0031",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0032",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0033",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0034",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0035",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0036",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0037",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0038",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0039",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x003A",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x003B",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x003C",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x003D",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x003E",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x003F",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0040",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0041",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0042",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0043",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          },
+          {
+            "record_id": "0x0044",
+            "size": "4",
+            "application_identifier": "Processor Information",
+            "Socket Designation": "None",
+            "Type": "Central Processor",
+            "Family": "Unknown",
+            "Manufacturer": "None",
+            "ID": "00 00 00 00 00 00 00 00",
+            "Version": "None",
+            "Voltage": "2.9 V",
+            "External Clock": "Unknown",
+            "Max Speed": "Unknown",
+            "Current Speed": "Unknown",
+            "Status": "Unpopulated",
+            "Upgrade": "None",
+            "L1 Cache Handle": "Not Provided",
+            "L2 Cache Handle": "Not Provided",
+            "L3 Cache Handle": "Not Provided",
+            "Serial Number": "None",
+            "Asset Tag": "None",
+            "Part Number": "None"
+          }
+        ],
+        "socket_designation": "None",
+        "type": "Central Processor",
+        "signature": "Type 0, Family 6, Model 63, Stepping 2",
+        "upgrade": "None",
+        "l1_cache_handle": "Not Provided",
+        "l2_cache_handle": "Not Provided",
+        "l3_cache_handle": "Not Provided",
+        "serial_number": "None",
+        "asset_tag": "None",
+        "part_number": "None"
+      }
     },
     "etc": {
       "passwd": {
@@ -3469,6 +5255,13 @@
           "uid": 59,
           "shell": "/sbin/nologin",
           "gecos": "Account used by the trousers package to sandbox the tcsd daemon"
+        },
+        "tomcat": {
+          "dir": "/opt/tomcat",
+          "gid": 1002,
+          "uid": 1001,
+          "shell": "/bin/nologin",
+          "gecos": ""
         }
       },
       "group": {
@@ -3759,10 +5552,22 @@
           "members": [
 
           ]
+        },
+        "Tomcat": {
+          "gid": 1001,
+          "members": [
+
+          ]
+        },
+        "tomcat": {
+          "gid": 1002,
+          "members": [
+
+          ]
         }
       }
     },
-    "current_user": "jprooneynj",
+    "current_user": "root",
     "cloud_v2": {
       "provider": "azure"
     },
@@ -3779,7 +5584,10 @@
     "init_package": "systemd",
     "keys": {
       "ssh": {
-
+        "host_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABAQDoX6e7olNgZanZ2W3m8WyBcmW852FdvwNSqAwQGUMy4acWyXvEYbW9uFhSxaSzR1XrrYBG6QydPB5xC23VHBbHXBh4e3sPv+lpEH1r/OIosVl2g7ga2nnnTDQ3YmedVyfhWsYLoKZ+Udz00nT2e4sd43ZZM2lfqsEQvMI8YnzFCxBtKHzRntp/bJeElFMYQEd3x/IjMFGgkTWmp/48sF/Ca10quGR4QB3+XFoE3TCeiR7ML+u2zK9jwnTbUvipEUJLzTyV1aEocaLCf6sY4gvOkqCaS6GulhqayWwAuRQCV3InzjQwOCPWI6L4cc7AaQ1BoPXDezS+xAGWVJ0emJSd",
+        "host_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBBoyYUE7XsJ2se1+a29wpOn83pn/5hBQd+4KUdDPWwXzCePirO49vMPIKHLHp+DW4PbM9D43KqzjP+zSjw84Oo8=",
+        "host_ecdsa_type": "ecdsa-sha2-nistp256",
+        "host_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIEEAQ5JzUMsaeEMov1V8cxiWfQIR0XtPtfllLEl1pL2O"
       }
     },
     "block_device": {
@@ -3827,7 +5635,7 @@
       "icon_name": "computer-vm",
       "chassis": "vm",
       "machine_id": "e198b57826ab4704a6526baea5fa1d06",
-      "boot_id": "ef4b9aa505f646f383122343a06f4084",
+      "boot_id": "fa1d3663217d43dda473ecca991eb7c7",
       "virtualization": "microsoft",
       "operating_system": "Red Hat Enterprise Linux Server 7.4 (Maipo)",
       "cpe_os_name": "cpe",
@@ -3837,17 +5645,31 @@
     "machine_id": "e198b57826ab4704a6526baea5fa1d06",
     "sessions": {
       "by_session": {
-        "9": {
-          "session": "9",
+        "1": {
+          "session": "1",
+          "uid": "0",
+          "user": "root",
+          "seat": null
+        },
+        "2": {
+          "session": "2",
           "uid": "1000",
           "user": "jprooneynj",
           "seat": null
         }
       },
       "by_user": {
+        "root": [
+          {
+            "session": "1",
+            "uid": "0",
+            "user": "root",
+            "seat": null
+          }
+        ],
         "jprooneynj": [
           {
-            "session": "9",
+            "session": "2",
             "uid": "1000",
             "user": "jprooneynj",
             "seat": null
@@ -3872,31 +5694,31 @@
       "system-state-logs": "/var/log",
       "system-state-cache": "/var/cache",
       "system-state-spool": "/var/spool",
-      "user-binaries": "/home/jprooneynj/.local/bin",
-      "user-library-private": "/home/jprooneynj/.local/lib",
-      "user-library-arch": "/home/jprooneynj/.local/lib/x86_64-linux-gnu",
-      "user-shared": "/home/jprooneynj/.local/share",
-      "user-configuration": "/home/jprooneynj/.config",
-      "user-runtime": "/run/user/1000",
-      "user-state-cache": "/home/jprooneynj/.cache",
-      "user": "/home/jprooneynj",
-      "user-documents": "/home/jprooneynj",
-      "user-music": "/home/jprooneynj",
-      "user-pictures": "/home/jprooneynj",
-      "user-videos": "/home/jprooneynj",
-      "user-download": "/home/jprooneynj",
-      "user-public": "/home/jprooneynj",
-      "user-templates": "/home/jprooneynj",
-      "user-desktop": "/home/jprooneynj/Desktop",
+      "user-binaries": "/root/.local/bin",
+      "user-library-private": "/root/.local/lib",
+      "user-library-arch": "/root/.local/lib/x86_64-linux-gnu",
+      "user-shared": "/root/.local/share",
+      "user-configuration": "/root/.config",
+      "user-runtime": "/run/user/0",
+      "user-state-cache": "/root/.cache",
+      "user": "/root",
+      "user-documents": "/root",
+      "user-music": "/root",
+      "user-pictures": "/root",
+      "user-videos": "/root",
+      "user-download": "/root",
+      "user-public": "/root",
+      "user-templates": "/root",
+      "user-desktop": "/root/Desktop",
       "search-binaries": "/usr/local/sbin",
-      "search-library-private": "/home/jprooneynj/.local/lib",
-      "search-library-arch": "/home/jprooneynj/.local/lib/x86_64-linux-gnu",
-      "search-shared": "/home/jprooneynj/.local/share",
+      "search-library-private": "/root/.local/lib",
+      "search-library-arch": "/root/.local/lib/x86_64-linux-gnu",
+      "search-shared": "/root/.local/share",
       "search-configuration-factory": "/usr/local/share/factory/etc",
       "search-state-factory": "/usr/local/share/factory/var",
-      "search-configuration": "/home/jprooneynj/.config"
+      "search-configuration": "/root/.config"
     },
-    "ohai_time": 1510794320.9085407,
+    "ohai_time": 1510864554.522967,
     "packages": {
       "bind-libs": {
         "epoch": "32",
@@ -4591,6 +6413,13 @@
         "installdate": "1502319668",
         "arch": "x86_64"
       },
+      "libXrender": {
+        "epoch": "0",
+        "version": "0.9.10",
+        "release": "1.el7",
+        "installdate": "1510857034",
+        "arch": "x86_64"
+      },
       "lvm2": {
         "epoch": "7",
         "version": "2.02.171",
@@ -4603,6 +6432,13 @@
         "version": "1.5.13",
         "release": "7.el7_2",
         "installdate": "1502319668",
+        "arch": "x86_64"
+      },
+      "cups-libs": {
+        "epoch": "1",
+        "version": "1.6.3",
+        "release": "29.el7",
+        "installdate": "1510857034",
         "arch": "x86_64"
       },
       "sysstat": {
@@ -4619,6 +6455,13 @@
         "installdate": "1502319670",
         "arch": "x86_64"
       },
+      "libXdamage": {
+        "epoch": "0",
+        "version": "1.1.4",
+        "release": "4.1.el7",
+        "installdate": "1510857035",
+        "arch": "x86_64"
+      },
       "tuned": {
         "epoch": "0",
         "version": "2.8.0",
@@ -4631,6 +6474,13 @@
         "version": "1.4.9",
         "release": "5.el7",
         "installdate": "1502319670",
+        "arch": "x86_64"
+      },
+      "libXcomposite": {
+        "epoch": "0",
+        "version": "0.4.4",
+        "release": "4.1.el7",
+        "installdate": "1510857035",
         "arch": "x86_64"
       },
       "crda": {
@@ -4647,11 +6497,25 @@
         "installdate": "1502319671",
         "arch": "x86_64"
       },
+      "libXfont": {
+        "epoch": "0",
+        "version": "1.5.2",
+        "release": "1.el7",
+        "installdate": "1510857036",
+        "arch": "x86_64"
+      },
       "libverto": {
         "epoch": "0",
         "version": "0.2.5",
         "release": "4.el7",
         "installdate": "1502319671",
+        "arch": "x86_64"
+      },
+      "libvorbis": {
+        "epoch": "1",
+        "version": "1.3.3",
+        "release": "8.el7",
+        "installdate": "1510857036",
         "arch": "x86_64"
       },
       "at": {
@@ -4668,6 +6532,13 @@
         "installdate": "1502319672",
         "arch": "x86_64"
       },
+      "libXxf86vm": {
+        "epoch": "0",
+        "version": "1.1.4",
+        "release": "1.el7",
+        "installdate": "1510857037",
+        "arch": "x86_64"
+      },
       "numactl-libs": {
         "epoch": "0",
         "version": "2.0.9",
@@ -4675,12 +6546,26 @@
         "installdate": "1502319672",
         "arch": "x86_64"
       },
+      "tzdata-java": {
+        "epoch": "0",
+        "version": "2017c",
+        "release": "1.el7",
+        "installdate": "1510857037",
+        "arch": "noarch"
+      },
       "ca-certificates": {
         "epoch": "0",
         "version": "2017.2.14",
         "release": "71.el7",
         "installdate": "1502319672",
         "arch": "noarch"
+      },
+      "gtk-update-icon-cache": {
+        "epoch": "0",
+        "version": "3.22.10",
+        "release": "4.el7",
+        "installdate": "1510857038",
+        "arch": "x86_64"
       },
       "systemtap-runtime": {
         "epoch": "0",
@@ -4696,12 +6581,26 @@
         "installdate": "1502319676",
         "arch": "x86_64"
       },
+      "copy-jdk-configs": {
+        "epoch": "0",
+        "version": "2.2",
+        "release": "3.el7",
+        "installdate": "1510857039",
+        "arch": "noarch"
+      },
       "python-decorator": {
         "epoch": "0",
         "version": "3.4.0",
         "release": "3.el7",
         "installdate": "1502319676",
         "arch": "noarch"
+      },
+      "fontconfig": {
+        "epoch": "0",
+        "version": "2.10.95",
+        "release": "11.el7",
+        "installdate": "1510857039",
+        "arch": "x86_64"
       },
       "libreport-plugin-mailx": {
         "epoch": "0",
@@ -4715,6 +6614,13 @@
         "version": "2.23.2",
         "release": "43.el7",
         "installdate": "1502319676",
+        "arch": "x86_64"
+      },
+      "pulseaudio-libs": {
+        "epoch": "0",
+        "version": "10.0",
+        "release": "3.el7",
+        "installdate": "1510857041",
         "arch": "x86_64"
       },
       "bash-completion": {
@@ -4731,6 +6637,13 @@
         "installdate": "1502319677",
         "arch": "x86_64"
       },
+      "pcsc-lite-libs": {
+        "epoch": "0",
+        "version": "1.8.8",
+        "release": "6.el7",
+        "installdate": "1510857043",
+        "arch": "x86_64"
+      },
       "blktrace": {
         "epoch": "0",
         "version": "1.0.5",
@@ -4743,6 +6656,13 @@
         "version": "0.52.15",
         "release": "4.el7",
         "installdate": "1502319678",
+        "arch": "x86_64"
+      },
+      "gtk2": {
+        "epoch": "0",
+        "version": "2.24.31",
+        "release": "1.el7",
+        "installdate": "1510857044",
         "arch": "x86_64"
       },
       "libcroco": {
@@ -6642,11 +8562,39 @@
         "installdate": "1502319707",
         "arch": "x86_64"
       },
+      "libXext": {
+        "epoch": "0",
+        "version": "1.3.3",
+        "release": "3.el7",
+        "installdate": "1510857034",
+        "arch": "x86_64"
+      },
+      "libXfixes": {
+        "epoch": "0",
+        "version": "5.0.3",
+        "release": "1.el7",
+        "installdate": "1510857034",
+        "arch": "x86_64"
+      },
+      "libogg": {
+        "epoch": "2",
+        "version": "1.3.0",
+        "release": "7.el7",
+        "installdate": "1510857034",
+        "arch": "x86_64"
+      },
       "mlocate": {
         "epoch": "0",
         "version": "0.26",
         "release": "6.el7",
         "installdate": "1502319711",
+        "arch": "x86_64"
+      },
+      "libICE": {
+        "epoch": "0",
+        "version": "1.0.9",
+        "release": "9.el7",
+        "installdate": "1510857034",
         "arch": "x86_64"
       },
       "usbutils": {
@@ -6656,11 +8604,25 @@
         "installdate": "1502319712",
         "arch": "x86_64"
       },
+      "libXtst": {
+        "epoch": "0",
+        "version": "1.2.3",
+        "release": "1.el7",
+        "installdate": "1510857035",
+        "arch": "x86_64"
+      },
       "psacct": {
         "epoch": "0",
         "version": "6.6.1",
         "release": "13.el7",
         "installdate": "1502319712",
+        "arch": "x86_64"
+      },
+      "libfontenc": {
+        "epoch": "0",
+        "version": "1.1.3",
+        "release": "3.el7",
+        "installdate": "1510857035",
         "arch": "x86_64"
       },
       "net-tools": {
@@ -6670,11 +8632,25 @@
         "installdate": "1502319713",
         "arch": "x86_64"
       },
+      "mesa-libglapi": {
+        "epoch": "0",
+        "version": "17.0.1",
+        "release": "6.20170307.el7",
+        "installdate": "1510857035",
+        "arch": "x86_64"
+      },
       "qemu-guest-agent": {
         "epoch": "10",
         "version": "2.8.0",
         "release": "2.el7",
         "installdate": "1502319713",
+        "arch": "x86_64"
+      },
+      "atk": {
+        "epoch": "0",
+        "version": "2.22.0",
+        "release": "3.el7",
+        "installdate": "1510857035",
         "arch": "x86_64"
       },
       "chrony": {
@@ -6684,11 +8660,25 @@
         "installdate": "1502319713",
         "arch": "x86_64"
       },
+      "mesa-libEGL": {
+        "epoch": "0",
+        "version": "17.0.1",
+        "release": "6.20170307.el7",
+        "installdate": "1510857036",
+        "arch": "x86_64"
+      },
       "rsync": {
         "epoch": "0",
         "version": "3.0.9",
         "release": "18.el7",
         "installdate": "1502319713",
+        "arch": "x86_64"
+      },
+      "xorg-x11-font-utils": {
+        "epoch": "1",
+        "version": "7.5",
+        "release": "20.el7",
+        "installdate": "1510857036",
         "arch": "x86_64"
       },
       "irqbalance": {
@@ -6698,11 +8688,25 @@
         "installdate": "1502319714",
         "arch": "x86_64"
       },
+      "flac-libs": {
+        "epoch": "0",
+        "version": "1.3.0",
+        "release": "5.el7_1",
+        "installdate": "1510857036",
+        "arch": "x86_64"
+      },
       "mdadm": {
         "epoch": "0",
         "version": "4.0",
         "release": "5.el7",
         "installdate": "1502319714",
+        "arch": "x86_64"
+      },
+      "libXcursor": {
+        "epoch": "0",
+        "version": "1.1.14",
+        "release": "8.el7",
+        "installdate": "1510857036",
         "arch": "x86_64"
       },
       "microcode_ctl": {
@@ -6712,11 +8716,25 @@
         "installdate": "1502319714",
         "arch": "x86_64"
       },
+      "libXinerama": {
+        "epoch": "0",
+        "version": "1.1.3",
+        "release": "2.1.el7",
+        "installdate": "1510857037",
+        "arch": "x86_64"
+      },
       "smartmontools": {
         "epoch": "1",
         "version": "6.2",
         "release": "8.el7",
         "installdate": "1502319714",
+        "arch": "x86_64"
+      },
+      "mesa-libGL": {
+        "epoch": "0",
+        "version": "17.0.1",
+        "release": "6.20170307.el7",
+        "installdate": "1510857037",
         "arch": "x86_64"
       },
       "kpatch": {
@@ -6726,11 +8744,32 @@
         "installdate": "1502319714",
         "arch": "noarch"
       },
+      "paratype-pt-sans-caption-fonts": {
+        "epoch": "0",
+        "version": "20101909",
+        "release": "3.el7",
+        "installdate": "1510857037",
+        "arch": "noarch"
+      },
       "parted": {
         "epoch": "0",
         "version": "3.1",
         "release": "28.el7",
         "installdate": "1502319715",
+        "arch": "x86_64"
+      },
+      "pixman": {
+        "epoch": "0",
+        "version": "0.34.0",
+        "release": "1.el7",
+        "installdate": "1510857037",
+        "arch": "x86_64"
+      },
+      "libsndfile": {
+        "epoch": "0",
+        "version": "1.0.25",
+        "release": "10.el7",
+        "installdate": "1510857038",
         "arch": "x86_64"
       },
       "setuptool": {
@@ -6740,11 +8779,25 @@
         "installdate": "1502319717",
         "arch": "x86_64"
       },
+      "lksctp-tools": {
+        "epoch": "0",
+        "version": "1.0.17",
+        "release": "2.el7",
+        "installdate": "1510857038",
+        "arch": "x86_64"
+      },
       "tcpdump": {
         "epoch": "14",
         "version": "4.9.0",
         "release": "5.el7",
         "installdate": "1502319717",
+        "arch": "x86_64"
+      },
+      "GConf2": {
+        "epoch": "0",
+        "version": "3.2.6",
+        "release": "8.el7",
+        "installdate": "1510857039",
         "arch": "x86_64"
       },
       "man-db": {
@@ -6754,11 +8807,25 @@
         "installdate": "1502319718",
         "arch": "x86_64"
       },
+      "python-javapackages": {
+        "epoch": "0",
+        "version": "3.4.1",
+        "release": "11.el7",
+        "installdate": "1510857039",
+        "arch": "noarch"
+      },
       "yum-utils": {
         "epoch": "0",
         "version": "1.1.31",
         "release": "42.el7",
         "installdate": "1502319718",
+        "arch": "noarch"
+      },
+      "fontpackages-filesystem": {
+        "epoch": "0",
+        "version": "1.44",
+        "release": "8.el7",
+        "installdate": "1510857039",
         "arch": "noarch"
       },
       "redhat-support-tool": {
@@ -6768,12 +8835,33 @@
         "installdate": "1502319718",
         "arch": "noarch"
       },
+      "cairo": {
+        "epoch": "0",
+        "version": "1.14.8",
+        "release": "2.el7",
+        "installdate": "1510857040",
+        "arch": "x86_64"
+      },
+      "libasyncns": {
+        "epoch": "0",
+        "version": "0.8",
+        "release": "7.el7",
+        "installdate": "1510857041",
+        "arch": "x86_64"
+      },
       "xfsdump": {
         "epoch": "0",
         "version": "3.1.4",
         "release": "1.el7",
         "installdate": "1502319719",
         "arch": "x86_64"
+      },
+      "hicolor-icon-theme": {
+        "epoch": "0",
+        "version": "0.12",
+        "release": "7.el7",
+        "installdate": "1510857041",
+        "arch": "noarch"
       },
       "mtr": {
         "epoch": "2",
@@ -6782,11 +8870,25 @@
         "installdate": "1502319719",
         "arch": "x86_64"
       },
+      "xorg-x11-fonts-Type1": {
+        "epoch": "0",
+        "version": "7.5",
+        "release": "9.el7",
+        "installdate": "1510857041",
+        "arch": "noarch"
+      },
       "e2fsprogs": {
         "epoch": "0",
         "version": "1.42.9",
         "release": "10.el7",
         "installdate": "1502319720",
+        "arch": "x86_64"
+      },
+      "graphite2": {
+        "epoch": "0",
+        "version": "1.3.10",
+        "release": "1.el7_3",
+        "installdate": "1510857043",
         "arch": "x86_64"
       },
       "tcsh": {
@@ -6796,6 +8898,13 @@
         "installdate": "1502319720",
         "arch": "x86_64"
       },
+      "pango": {
+        "epoch": "0",
+        "version": "1.40.4",
+        "release": "1.el7",
+        "installdate": "1510857043",
+        "arch": "x86_64"
+      },
       "iprutils": {
         "epoch": "0",
         "version": "2.4.14.1",
@@ -6803,11 +8912,25 @@
         "installdate": "1502319720",
         "arch": "x86_64"
       },
+      "java-1.7.0-openjdk-headless": {
+        "epoch": "1",
+        "version": "1.7.0.151",
+        "release": "2.6.11.1.el7_4",
+        "installdate": "1510857048",
+        "arch": "x86_64"
+      },
       "ledmon": {
         "epoch": "0",
         "version": "0.80",
         "release": "2.el7",
         "installdate": "1502319720",
+        "arch": "x86_64"
+      },
+      "java-1.7.0-openjdk-devel": {
+        "epoch": "1",
+        "version": "1.7.0.151",
+        "release": "2.6.11.1.el7_4",
+        "installdate": "1510857050",
         "arch": "x86_64"
       },
       "ntsysv": {
@@ -7664,11 +9787,25 @@
         "installdate": "1502319668",
         "arch": "x86_64"
       },
+      "libXi": {
+        "epoch": "0",
+        "version": "1.7.9",
+        "release": "1.el7",
+        "installdate": "1510857034",
+        "arch": "x86_64"
+      },
       "vim-common": {
         "epoch": "2",
         "version": "7.4.160",
         "release": "2.el7",
         "installdate": "1502319670",
+        "arch": "x86_64"
+      },
+      "libSM": {
+        "epoch": "0",
+        "version": "1.2.2",
+        "release": "2.el7",
+        "installdate": "1510857035",
         "arch": "x86_64"
       },
       "audit": {
@@ -7685,6 +9822,13 @@
         "installdate": "1502319670",
         "arch": "x86_64"
       },
+      "libxshmfence": {
+        "epoch": "0",
+        "version": "1.2",
+        "release": "1.el7",
+        "installdate": "1510857035",
+        "arch": "x86_64"
+      },
       "rng-tools": {
         "epoch": "0",
         "version": "5",
@@ -7697,6 +9841,13 @@
         "version": "0.4.11",
         "release": "10.el7",
         "installdate": "1502319670",
+        "arch": "x86_64"
+      },
+      "mesa-libgbm": {
+        "epoch": "0",
+        "version": "17.0.1",
+        "release": "6.20170307.el7",
+        "installdate": "1510857036",
         "arch": "x86_64"
       },
       "ntpdate": {
@@ -7713,6 +9864,13 @@
         "installdate": "1502319671",
         "arch": "x86_64"
       },
+      "giflib": {
+        "epoch": "0",
+        "version": "4.1.6",
+        "release": "9.el7",
+        "installdate": "1510857036",
+        "arch": "x86_64"
+      },
       "aic94xx-firmware": {
         "epoch": "0",
         "version": "30",
@@ -7727,11 +9885,25 @@
         "installdate": "1502319671",
         "arch": "x86_64"
       },
+      "libXrandr": {
+        "epoch": "0",
+        "version": "1.5.1",
+        "release": "2.el7",
+        "installdate": "1510857036",
+        "arch": "x86_64"
+      },
       "biosdevname": {
         "epoch": "0",
         "version": "0.7.2",
         "release": "2.el7",
         "installdate": "1502319714",
+        "arch": "x86_64"
+      },
+      "libthai": {
+        "epoch": "0",
+        "version": "0.1.14",
+        "release": "9.el7",
+        "installdate": "1510857037",
         "arch": "x86_64"
       },
       "cryptsetup": {
@@ -7748,6 +9920,13 @@
         "installdate": "1502319672",
         "arch": "x86_64"
       },
+      "gsm": {
+        "epoch": "0",
+        "version": "1.0.13",
+        "release": "11.el7",
+        "installdate": "1510857038",
+        "arch": "x86_64"
+      },
       "authconfig": {
         "epoch": "0",
         "version": "6.2.8",
@@ -7760,6 +9939,13 @@
         "version": "8.22",
         "release": "18.el7",
         "installdate": "1502319673",
+        "arch": "x86_64"
+      },
+      "psmisc": {
+        "epoch": "0",
+        "version": "22.20",
+        "release": "15.el7",
+        "installdate": "1510857038",
         "arch": "x86_64"
       },
       "vim-enhanced": {
@@ -7776,6 +9962,13 @@
         "installdate": "1502319676",
         "arch": "x86_64"
       },
+      "javapackages-tools": {
+        "epoch": "0",
+        "version": "3.4.1",
+        "release": "11.el7",
+        "installdate": "1510857039",
+        "arch": "noarch"
+      },
       "yum-langpacks": {
         "epoch": "0",
         "version": "0.4.2",
@@ -7790,11 +9983,25 @@
         "installdate": "1502319676",
         "arch": "noarch"
       },
+      "libXft": {
+        "epoch": "0",
+        "version": "2.3.2",
+        "release": "2.el7",
+        "installdate": "1510857041",
+        "arch": "x86_64"
+      },
       "shared-mime-info": {
         "epoch": "0",
         "version": "1.8",
         "release": "3.el7",
         "installdate": "1502319677",
+        "arch": "x86_64"
+      },
+      "ttmkfdir": {
+        "epoch": "0",
+        "version": "3.0.9",
+        "release": "42.el7",
+        "installdate": "1510857041",
         "arch": "x86_64"
       },
       "btrfs-progs": {
@@ -7811,11 +10018,25 @@
         "installdate": "1502319678",
         "arch": "x86_64"
       },
+      "harfbuzz": {
+        "epoch": "0",
+        "version": "1.3.2",
+        "release": "1.el7",
+        "installdate": "1510857043",
+        "arch": "x86_64"
+      },
       "gobject-introspection": {
         "epoch": "0",
         "version": "1.50.0",
         "release": "1.el7",
         "installdate": "1502319678",
+        "arch": "x86_64"
+      },
+      "java-1.7.0-openjdk": {
+        "epoch": "1",
+        "version": "1.7.0.151",
+        "release": "2.6.11.1.el7_4",
+        "installdate": "1510857048",
         "arch": "x86_64"
       },
       "hunspell-en": {
@@ -7967,6 +10188,7 @@
       }
     },
     "root_group": "root",
+    "shard_seed": 52240492,
     "shells": [
       "/bin/sh",
       "/bin/bash",
@@ -8002,7 +10224,7 @@
       "CHAR_BIT": 8,
       "CHAR_MAX": 127,
       "CHAR_MIN": -128,
-      "CHILD_MAX": 4096,
+      "CHILD_MAX": 27764,
       "CLK_TCK": 100,
       "INT_MAX": 2147483647,
       "INT_MIN": -2147483648,
@@ -8041,13 +10263,13 @@
       "ULONG_MAX": 18446744073709551615,
       "USHRT_MAX": 65535,
       "WORD_BIT": 32,
-      "_AVPHYS_PAGES": 1616421,
+      "_AVPHYS_PAGES": 1425323,
       "_NPROCESSORS_CONF": 2,
       "_NPROCESSORS_ONLN": 2,
-      "_PHYS_PAGES": 1783834,
+      "_PHYS_PAGES": 1781721,
       "_POSIX_ARG_MAX": 2097152,
       "_POSIX_ASYNCHRONOUS_IO": 200809,
-      "_POSIX_CHILD_MAX": 4096,
+      "_POSIX_CHILD_MAX": 27764,
       "_POSIX_FSYNC": 200809,
       "_POSIX_JOB_CONTROL": 1,
       "_POSIX_MAPPED_FILES": 200809,
@@ -8268,7 +10490,7 @@
       "RTSIG_MAX": 32,
       "SEM_NSEMS_MAX": null,
       "SEM_VALUE_MAX": 2147483647,
-      "SIGQUEUE_MAX": 27797,
+      "SIGQUEUE_MAX": 27764,
       "FILESIZEBITS": 64,
       "POSIX_ALLOC_SIZE_MIN": 4096,
       "POSIX_REC_INCR_XFER_SIZE": null,
