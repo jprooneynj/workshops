@@ -7,7 +7,7 @@
 # Copyright:: 2017, The Authors, All Rights Reserved.
 
 
-# yum_package 'java-1.7.0-openjdk-devel'
+yum_package 'java-1.7.0-openjdk-devel'
 
 
 execute 'groupadd' do
@@ -39,15 +39,18 @@ end
 
 execute 'chmod' do
   command '/bin/chmod -R g+r conf'
+  cwd "/opt/tomcat"
   ignore_failure true
 end
 
 execute 'chmod1' do
   command '/bin/chmod g+x conf'
+  cwd "/opt/tomcat"
   ignore_failure true
 end
 
 execute 'chown' do
   command '/bin/chown -R tomcat webapps/ work/ temp/ logs/'
+  cwd "/opt/tomcat" 
   ignore_failure true
 end
