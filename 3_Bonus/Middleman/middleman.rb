@@ -54,6 +54,34 @@ execute 'a2enmod1' do
   ignore_failure true
 end
 
+file 'blog.conf' do
+  content "# /etc/apache2/sites-enabled/blog.conf
+
+LoadModule proxy_module modules/mod_proxy.so
+LoadModule proxy_http_module modules/mod_proxy_http.so
+
+ProxyRequests Off
+
+<Proxy *>
+  Order deny,allow
+  Allow from all
+</Proxy>
+
+
+<VirtualHost *:80>
+  ServerName <%= node['ipaddress'] %>
+  ServerAlias <%= node['ipaddress'] %>
+
+  ProxyRequests Off
+  RewriteEngine On
+  ProxyPreserveHost On
+  ProxyPass / http://localhost:3000/
+  ProxyPassReverse / http://localhost:3000/
+
+</VirtualHost>
+``"
+end
+
 execute 'cp' do
   command 'cp blog.conf /etc/apache2/sites-enabled/blog.conf'
   ignore_failure true
@@ -72,3 +100,7 @@ execute 'apt-get git' do
   command ' apt-get install git'
 end
 
+execute 'git clone' do
+  command 'git clone https://github.com/learnchef/middleman-blog.git'
+  cwd "/root/chef-repo"
+end
