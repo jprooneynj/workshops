@@ -103,4 +103,99 @@ end
 execute 'git clone' do
   command 'git clone https://github.com/learnchef/middleman-blog.git'
   cwd "/root/chef-repo"
+  ignore_failure true
+end
+
+execute 'gen install bundler' do
+  command 'gem install bundler'
+  cwd '/root/chef-repo/middleman-blog'
+  ignore_failure true
+end
+
+execute 'chmod' do
+  command '/bin/chmod -R 755 /root/chef-repo/middleman-blog/'
+  cwd "/root/chef-repo/middleman-blog"
+  ignore_failure true
+end
+
+execute 'bundle install' do
+  command 'bundle install'
+  cwd '/root/chef-repo/middleman-blog'
+  user 'jprooneynj'
+  ignore_failure true
+end
+
+execute 'thin install' do
+  command 'thin install'
+  ignore_failure true
+end
+
+execute 'thin update' do
+  command '/usr/sbin/update-rc.d -f thin defaults'
+  ignore_failure true
+end
+
+
+file '/etc/thin/blog.yml' do
+  content "# /etc/thin/blog.yml
+pid: tmp/pids/thin.pid
+log: log/thin.log
+timeout: 30
+max_conns: 1024
+port: 3000
+max_persistent_conns: 512
+chdir: <%= @project_install_directory %>
+environment: development
+servers: 1
+address: 0.0.0.0
+daemonize: true
+``"
+end
+
+file '/etc/init.d/thin' do
+  content "# /etc/init.d/thin
+
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          thin
+# Required-Start:    $local_fs $remote_fs
+# Required-Stop:     $local_fs $remote_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      S 0 1 6
+# Short-Description: thin initscript
+# Description:       thin
+### END INIT INFO
+
+# Original author: Forrest Robertson
+
+# Do NOT "set -e"
+
+DAEMON=/usr/local/bin/thin
+SCRIPT_NAME=/etc/init.d/thin
+CONFIG_PATH=/etc/thin
+HOME=<%= @home_directory %>
+
+# Exit if the package is not installed
+[ -x "$DAEMON" ] || exit 0
+
+case "$1" in
+  start)
+  HOME=$HOME $DAEMON start --all $CONFIG_PATH
+  ;;
+  stop)
+  HOME=$HOME $DAEMON stop --all $CONFIG_PATH
+  ;;
+  restart)
+  HOME=$HOME $DAEMON restart --all $CONFIG_PATH
+  ;;
+  *)
+  echo "Usage: $SCRIPT_NAME {start|stop|restart}" >&2
+  exit 3
+  ;;
+esac
+``"
+end
+
+service 'thin' do
+  action [:enable, :start]
 end
